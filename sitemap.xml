@@ -2,13 +2,6 @@
 <urlset xmlns="http://www.sitemaps.org/schemas/sitemap/0.9">
   
   <url>
-    <loc>http://yoursite.com/2020/03/21/%E6%A0%91%E7%9A%84%E9%81%8D%E5%8E%86/</loc>
-    
-    <lastmod>2020-03-21T10:16:58.219Z</lastmod>
-    
-  </url>
-  
-  <url>
     <loc>http://yoursite.com/2020/03/18/%E6%B5%8F%E8%A7%88%E5%99%A8%E7%BC%93%E5%AD%98/</loc>
     
     <lastmod>2020-03-21T10:16:58.219Z</lastmod>
@@ -16,14 +9,21 @@
   </url>
   
   <url>
-    <loc>http://yoursite.com/2020/03/17/%E5%A6%82%E4%BD%95%E7%90%86%E8%A7%A3javascript%E4%B8%AD%E7%9A%84this/</loc>
+    <loc>http://yoursite.com/2020/03/21/%E6%A0%91%E7%9A%84%E9%81%8D%E5%8E%86/</loc>
+    
+    <lastmod>2020-03-21T10:16:58.219Z</lastmod>
+    
+  </url>
+  
+  <url>
+    <loc>http://yoursite.com/2020/03/19/%E5%89%91%E6%8C%87offer-javascript%E7%89%88-%E9%87%8D%E5%BB%BA%E4%BA%8C%E5%8F%89%E6%A0%91/</loc>
     
     <lastmod>2020-03-21T10:16:58.218Z</lastmod>
     
   </url>
   
   <url>
-    <loc>http://yoursite.com/2020/03/19/%E5%89%91%E6%8C%87offer-javascript%E7%89%88-%E9%87%8D%E5%BB%BA%E4%BA%8C%E5%8F%89%E6%A0%91/</loc>
+    <loc>http://yoursite.com/2020/03/17/%E5%A6%82%E4%BD%95%E7%90%86%E8%A7%A3javascript%E4%B8%AD%E7%9A%84this/</loc>
     
     <lastmod>2020-03-21T10:16:58.218Z</lastmod>
     
