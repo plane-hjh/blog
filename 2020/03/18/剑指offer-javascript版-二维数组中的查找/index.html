@@ -7,17 +7,22 @@
 
 <meta name="viewport" content="width=device-width, initial-scale=1, maximum-scale=1" />
 
-<title>归档 - plane&#39;s blog</title>
+<title>剑指Offer-Javascript版-二维数组中的查找 - plane&#39;s blog</title>
 
 
-    <meta property="og:type" content="website">
-<meta property="og:title" content="plane&#39;s blog">
-<meta property="og:url" content="http://yoursite.com/archives/index.html">
+    <meta name="description" content="对应LeetCode上的题目：面试题04. 二维数组中的查找  题目描述：在一个 n * m 的二维数组中，每一行都按照从左到右递增的顺序排序，每一列都按照从上到下递增的顺序排序。请完成一个函数，输入这样的一个二维数组和一个整数，判断数组中是否含有该整数。">
+<meta name="keywords" content="数组">
+<meta property="og:type" content="article">
+<meta property="og:title" content="剑指Offer-Javascript版-二维数组中的查找">
+<meta property="og:url" content="http://yoursite.com/2020/03/18/剑指offer-javascript版-二维数组中的查找/index.html">
 <meta property="og:site_name" content="plane&#39;s blog">
+<meta property="og:description" content="对应LeetCode上的题目：面试题04. 二维数组中的查找  题目描述：在一个 n * m 的二维数组中，每一行都按照从左到右递增的顺序排序，每一列都按照从上到下递增的顺序排序。请完成一个函数，输入这样的一个二维数组和一个整数，判断数组中是否含有该整数。">
 <meta property="og:locale" content="zh-CN">
 <meta property="og:image" content="http://yoursite.com/images/og_image.png">
+<meta property="og:updated_time" content="2020-03-18T13:20:27.646Z">
 <meta name="twitter:card" content="summary">
-<meta name="twitter:title" content="plane&#39;s blog">
+<meta name="twitter:title" content="剑指Offer-Javascript版-二维数组中的查找">
+<meta name="twitter:description" content="对应LeetCode上的题目：面试题04. 二维数组中的查找  题目描述：在一个 n * m 的二维数组中，每一行都按照从左到右递增的顺序排序，每一列都按照从上到下递增的顺序排序。请完成一个函数，输入这样的一个二维数组和一个整数，判断数组中是否含有该整数。">
 <meta name="twitter:image" content="http://yoursite.com/images/og_image.png">
 
 
@@ -76,7 +81,7 @@
         <div class="navbar-brand is-flex-center">
             <a class="navbar-item navbar-logo" href="/">
             
-                <img src="/images/logo.svg" alt="plane&#39;s blog" height="28">
+                <img src="/images/logo.svg" alt="剑指Offer-Javascript版-二维数组中的查找" height="28">
             
             </a>
         </div>
@@ -87,7 +92,7 @@
                 <a class="navbar-item"
                 href="/">Home</a>
                 
-                <a class="navbar-item is-active"
+                <a class="navbar-item"
                 href="/archives">Archives</a>
                 
                 <a class="navbar-item"
@@ -126,171 +131,136 @@
         <div class="container">
             <div class="columns">
                 <div class="column is-8-tablet is-8-desktop is-6-widescreen has-order-2 column-main">
+<div class="card">
+    
+    <div class="card-content article ">
         
-<div class="card widget">
+        <div class="level article-meta is-size-7 is-uppercase is-mobile is-overflow-x-auto">
+            <div class="level-left">
+                <time class="level-item has-text-grey" datetime="2020-03-18T12:54:15.000Z">2020-03-18</time>
+                
+                <div class="level-item">
+                <a class="has-link-grey -link" href="/categories/算法/">算法</a>
+                </div>
+                
+                
+                <span class="level-item has-text-grey">
+                    
+                    
+                    5 分钟 读完 (大约 762 个字)
+                </span>
+                
+                
+            </div>
+        </div>
+        
+        <h1 class="title is-size-3 is-size-4-mobile has-text-weight-normal">
+            
+                剑指Offer-Javascript版-二维数组中的查找
+            
+        </h1>
+        <div class="content">
+            <blockquote>
+<p>对应LeetCode上的题目：面试题04. 二维数组中的查找</p>
+</blockquote>
+<p><strong>题目描述</strong>：在一个 <code>n * m</code> 的二维数组中，每一行都按照从左到右递增的顺序排序，每一列都按照从上到下递增的顺序排序。请完成一个函数，输入这样的一个二维数组和一个整数，判断数组中是否含有该整数。</p>
+<a id="more"></a>
+<h2 id="题目描述"><a href="#题目描述" class="headerlink" title="题目描述"></a>题目描述</h2><p>在一个 <code>n * m</code> 的二维数组中，每一行都按照从左到右递增的顺序排序，每一列都按照从上到下递增的顺序排序。请完成一个函数，输入这样的一个二维数组和一个整数，判断数组中是否含有该整数。</p>
+<h2 id="解法一，暴力求解法"><a href="#解法一，暴力求解法" class="headerlink" title="解法一，暴力求解法"></a>解法一，暴力求解法</h2><p>因为是 <code>n * m</code> 的二维数组，所以我们可以直接使用双层遍历来遍历整个二维数组的项。注意，该方法不管你数组是递增还是递减的规律，直接一梭子遍历就完事了</p>
+<figure class="highlight javascript"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br><span class="line">12</span><br><span class="line">13</span><br><span class="line">14</span><br><span class="line">15</span><br><span class="line">16</span><br><span class="line">17</span><br><span class="line">18</span><br><span class="line">19</span><br><span class="line">20</span><br><span class="line">21</span><br><span class="line">22</span><br></pre></td><td class="code"><pre><span class="line"></span><br><span class="line"><span class="keyword">var</span> findNumberIn2DArray = <span class="function"><span class="keyword">function</span>(<span class="params">matrix, target</span>) </span>&#123;</span><br><span class="line">    <span class="comment">// 多少行</span></span><br><span class="line">    <span class="keyword">const</span> rowLength = matrix.length</span><br><span class="line"></span><br><span class="line">    <span class="keyword">if</span>(!rowLength) <span class="keyword">return</span> <span class="literal">false</span></span><br><span class="line"></span><br><span class="line">    <span class="comment">// 多少列</span></span><br><span class="line">    <span class="keyword">const</span> colLength = matrix[<span class="number">0</span>].length</span><br><span class="line"></span><br><span class="line">    <span class="keyword">if</span>(!colLength) <span class="keyword">return</span> <span class="literal">false</span></span><br><span class="line"></span><br><span class="line">    <span class="keyword">for</span>(<span class="keyword">let</span> i = <span class="number">0</span>; i &lt; rowLength; i++) &#123;</span><br><span class="line">        <span class="keyword">for</span>(<span class="keyword">let</span> j = <span class="number">0</span>; j &lt; colLength; j++) &#123;</span><br><span class="line">            <span class="keyword">if</span>(matrix[i][j] === target) &#123;</span><br><span class="line">                <span class="keyword">return</span> <span class="literal">true</span></span><br><span class="line">            &#125;</span><br><span class="line">        &#125;</span><br><span class="line">    &#125;</span><br><span class="line"></span><br><span class="line">    <span class="keyword">return</span> <span class="literal">false</span></span><br><span class="line">&#125;;</span><br></pre></td></tr></table></figure>
+<p>当然，我们也可以使用数组提供的 <code>API</code> 去解决这道问题，例如：<code>indexOf</code>，<code>includes</code>，但是由于该种做法过于简单，我们刷题的时候应该尽量避免使用此类 <code>API</code>，下面讲述一下思路：</p>
+<ul>
+<li>遍历数组的每一个项，再使用数组的每一项去判断子数组中是否存在目标元素（<code>indexOf</code> 判断子数组中目标元素的位置，可以用是否大于 <code>-1</code> 来判断，<code>includes</code> 则是判断数组中是否存在某元素，存在则返回 <code>true</code>，否则返回 <code>false</code>）</li>
+</ul>
+<h2 id="解法二，发现规律"><a href="#解法二，发现规律" class="headerlink" title="解法二，发现规律"></a>解法二，发现规律</h2><p>从题目描述中可以发现二维数组中的每一行都按照从左到右递增，每一列都按照从上到下递增。我们可以利用这一规律作为解题的突破口，那么</p>
+<ul>
+<li><p>从数组中选取一个数组，分三种情况来分析查找的过程</p>
+</li>
+<li><p>如果数组中选取的数字刚好等于目标元素，那么直接返回 <code>true</code>，结束查找。</p>
+</li>
+<li><p>如果选取的数字小于目标元素，那么目标元素的位置应该在选取的数字的右边或者下边</p>
+</li>
+<li><p>同样，如果选取的数字大于目标元素，那么目标元素的位置应该在选取的数字的左边或者上边</p>
+</li>
+</ul>
+<figure class="highlight javascript"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br><span class="line">12</span><br><span class="line">13</span><br><span class="line">14</span><br><span class="line">15</span><br><span class="line">16</span><br><span class="line">17</span><br><span class="line">18</span><br><span class="line">19</span><br><span class="line">20</span><br><span class="line">21</span><br><span class="line">22</span><br><span class="line">23</span><br><span class="line">24</span><br><span class="line">25</span><br><span class="line">26</span><br><span class="line">27</span><br><span class="line">28</span><br><span class="line">29</span><br></pre></td><td class="code"><pre><span class="line"></span><br><span class="line"><span class="keyword">var</span> findNumberIn2DArray = <span class="function"><span class="keyword">function</span>(<span class="params">matrix, target</span>) </span>&#123;</span><br><span class="line">    <span class="keyword">const</span> rowLength = matrix.length</span><br><span class="line">    <span class="keyword">if</span>(!rowLength) &#123;</span><br><span class="line">        <span class="keyword">return</span> <span class="literal">false</span></span><br><span class="line">    &#125;</span><br><span class="line"></span><br><span class="line">    <span class="keyword">const</span> colLength = matrix[<span class="number">0</span>].length</span><br><span class="line">    <span class="keyword">if</span>(!colLength) &#123;</span><br><span class="line">        <span class="keyword">return</span> <span class="literal">false</span></span><br><span class="line">    &#125;</span><br><span class="line"></span><br><span class="line">    <span class="keyword">let</span> row = <span class="number">0</span>, col = colLength - <span class="number">1</span>;</span><br><span class="line"></span><br><span class="line">    <span class="keyword">while</span>(row &lt; rowLength &amp;&amp; col &gt;= <span class="number">0</span>) &#123;</span><br><span class="line">        <span class="keyword">if</span>(matrix[row][col] === target) &#123;</span><br><span class="line">            <span class="comment">// 第一种情况</span></span><br><span class="line">            <span class="keyword">return</span> <span class="literal">true</span></span><br><span class="line">        &#125; <span class="keyword">else</span> <span class="keyword">if</span>(matrix[row][col] &gt; target) &#123;</span><br><span class="line">            <span class="comment">// 第三种情况</span></span><br><span class="line">            --col</span><br><span class="line">        &#125; <span class="keyword">else</span> &#123;</span><br><span class="line">            <span class="comment">// 第二种情况</span></span><br><span class="line">            ++row</span><br><span class="line">        &#125;</span><br><span class="line">    &#125;</span><br><span class="line"></span><br><span class="line">    <span class="keyword">return</span> <span class="literal">false</span></span><br><span class="line">&#125;;</span><br></pre></td></tr></table></figure>
+
+        </div>
+        
+        <div class="level is-size-7 is-uppercase">
+            <div class="level-start">
+                <div class="level-item">
+                    <span class="is-size-6 has-text-grey has-mr-7">#</span>
+                    <a class="has-link-grey -link" href="/tags/数组/">数组</a>
+                </div>
+            </div>
+        </div>
+        
+        
+        
+    </div>
+</div>
+
+
+
+<div class="card">
     <div class="card-content">
-        <h3 class="tag is-link">
-        2020
-        </h3>
-        <div class="timeline">
-        
-            <article class="media">
+        <h3 class="menu-label has-text-centered">喜欢这篇文章？打赏一下作者吧</h3>
+        <div class="buttons is-centered">
+            
                 
-                <div class="media-content">
-                    <div class="content">
-                        <time class="has-text-grey is-size-7 is-block is-uppercase" datetime="2020-03-21T09:08:04.000Z">2020-03-21</time>
-                        <a href="/2020/03/21/树的遍历/" class="title has-link-black-ter is-size-6 has-text-weight-normal">树</a>
-                        <div class="level article-meta is-mobile">
-                            <div class="level-left">
-                                
-                                <div class="level-item is-size-7 is-uppercase">
-                                <a class="has-link-grey -link" href="/categories/算法/">算法</a>
-                                </div>
-                                
-                            </div>
-                        </div>
-                    </div>
-                </div>
-            </article>
-        
-            <article class="media">
+<div class="notification is-danger">
+    You forgot to set the <code>qrcode</code> for Alipay. Please set it in <code>_config.yml</code>.
+</div>
+
                 
-                <div class="media-content">
-                    <div class="content">
-                        <time class="has-text-grey is-size-7 is-block is-uppercase" datetime="2020-03-19T13:13:35.000Z">2020-03-19</time>
-                        <a href="/2020/03/19/剑指offer-javascript版-重建二叉树/" class="title has-link-black-ter is-size-6 has-text-weight-normal">剑指Offer-Javascript版-重建二叉树</a>
-                        <div class="level article-meta is-mobile">
-                            <div class="level-left">
-                                
-                                <div class="level-item is-size-7 is-uppercase">
-                                <a class="has-link-grey -link" href="/categories/算法/">算法</a>
-                                </div>
-                                
-                            </div>
-                        </div>
-                    </div>
-                </div>
-            </article>
-        
-            <article class="media">
                 
-                <div class="media-content">
-                    <div class="content">
-                        <time class="has-text-grey is-size-7 is-block is-uppercase" datetime="2020-03-19T12:41:23.000Z">2020-03-19</time>
-                        <a href="/2020/03/19/剑指offer-javascript版-从尾到头打印链表/" class="title has-link-black-ter is-size-6 has-text-weight-normal">剑指Offer-Javascript版-从尾到头打印链表</a>
-                        <div class="level article-meta is-mobile">
-                            <div class="level-left">
-                                
-                                <div class="level-item is-size-7 is-uppercase">
-                                <a class="has-link-grey -link" href="/categories/算法/">算法</a>
-                                </div>
-                                
-                            </div>
-                        </div>
-                    </div>
-                </div>
-            </article>
-        
-            <article class="media">
+<div class="notification is-danger">
+    You forgot to set the <code>qrcode</code> for Wechat. Please set it in <code>_config.yml</code>.
+</div>
+
                 
-                <div class="media-content">
-                    <div class="content">
-                        <time class="has-text-grey is-size-7 is-block is-uppercase" datetime="2020-03-18T13:29:41.000Z">2020-03-18</time>
-                        <a href="/2020/03/18/剑指offer-javascript版-替换空格/" class="title has-link-black-ter is-size-6 has-text-weight-normal">剑指Offer-Javascript版-替换空格</a>
-                        <div class="level article-meta is-mobile">
-                            <div class="level-left">
-                                
-                                <div class="level-item is-size-7 is-uppercase">
-                                <a class="has-link-grey -link" href="/categories/算法/">算法</a>
-                                </div>
-                                
-                            </div>
-                        </div>
-                    </div>
-                </div>
-            </article>
-        
-            <article class="media">
+                <!-- Visit https://www.paypal.com/donate/buttons/ to get your donate button -->
+
+<div class="notification is-danger">
+    You forgot to set the <code>business</code> and <code>currency_code</code> for Paypal. Please set it in <code>_config.yml</code>.
+</div>
+
                 
-                <div class="media-content">
-                    <div class="content">
-                        <time class="has-text-grey is-size-7 is-block is-uppercase" datetime="2020-03-18T12:54:15.000Z">2020-03-18</time>
-                        <a href="/2020/03/18/剑指offer-javascript版-二维数组中的查找/" class="title has-link-black-ter is-size-6 has-text-weight-normal">剑指Offer-Javascript版-二维数组中的查找</a>
-                        <div class="level article-meta is-mobile">
-                            <div class="level-left">
-                                
-                                <div class="level-item is-size-7 is-uppercase">
-                                <a class="has-link-grey -link" href="/categories/算法/">算法</a>
-                                </div>
-                                
-                            </div>
-                        </div>
-                    </div>
-                </div>
-            </article>
-        
-            <article class="media">
                 
-                <div class="media-content">
-                    <div class="content">
-                        <time class="has-text-grey is-size-7 is-block is-uppercase" datetime="2020-03-17T23:34:00.000Z">2020-03-18</time>
-                        <a href="/2020/03/18/浏览器缓存/" class="title has-link-black-ter is-size-6 has-text-weight-normal">强缓存和协商缓存</a>
-                        <div class="level article-meta is-mobile">
-                            <div class="level-left">
-                                
-                                <div class="level-item is-size-7 is-uppercase">
-                                <a class="has-link-grey -link" href="/categories/http/">http</a>
-                                </div>
-                                
-                            </div>
-                        </div>
-                    </div>
-                </div>
-            </article>
-        
-            <article class="media">
+<div class="notification is-danger">
+    You forgot to set the <code>url</code> Patreon. Please set it in <code>_config.yml</code>.
+</div>
+
                 
-                <div class="media-content">
-                    <div class="content">
-                        <time class="has-text-grey is-size-7 is-block is-uppercase" datetime="2020-03-17T15:27:26.000Z">2020-03-17</time>
-                        <a href="/2020/03/17/如何理解javascript中的this/" class="title has-link-black-ter is-size-6 has-text-weight-normal">如何理解Javascript中的this</a>
-                        <div class="level article-meta is-mobile">
-                            <div class="level-left">
-                                
-                                <div class="level-item is-size-7 is-uppercase">
-                                <a class="has-link-grey -link" href="/categories/javascript/">javascript</a>
-                                </div>
-                                
-                            </div>
-                        </div>
-                    </div>
-                </div>
-            </article>
-        
-            <article class="media">
-                
-                <div class="media-content">
-                    <div class="content">
-                        <time class="has-text-grey is-size-7 is-block is-uppercase" datetime="2020-03-17T13:56:26.000Z">2020-03-17</time>
-                        <a href="/2020/03/17/剑指offer-javascript版-找出数组中的数字/" class="title has-link-black-ter is-size-6 has-text-weight-normal">剑指Offer-Javascript版-找出数组中的数字</a>
-                        <div class="level article-meta is-mobile">
-                            <div class="level-left">
-                                
-                                <div class="level-item is-size-7 is-uppercase">
-                                <a class="has-link-grey -link" href="/categories/算法/">算法</a>
-                                </div>
-                                
-                            </div>
-                        </div>
-                    </div>
-                </div>
-            </article>
-        
         </div>
     </div>
 </div>
 
-    
+
+
+<div class="card card-transparent">
+    <div class="level post-navigation is-flex-wrap is-mobile">
+        
+        <div class="level-start">
+            <a class="level level-item has-link-grey  article-nav-prev" href="/2020/03/18/剑指offer-javascript版-替换空格/">
+                <i class="level-item fas fa-chevron-left"></i>
+                <span class="level-item">剑指Offer-Javascript版-替换空格</span>
+            </a>
+        </div>
+        
+        
+        <div class="level-end">
+            <a class="level level-item has-link-grey  article-nav-next" href="/2020/03/18/浏览器缓存/">
+                <span class="level-item">强缓存和协商缓存</span>
+                <i class="level-item fas fa-chevron-right"></i>
+            </a>
+        </div>
+        
+    </div>
+</div>
+
+
 </div>
                 
 
@@ -866,7 +836,7 @@
             <div class="level-start has-text-centered-mobile">
                 <a class="footer-logo is-block has-mb-6" href="/">
                 
-                    <img src="/images/logo.svg" alt="plane&#39;s blog" height="28">
+                    <img src="/images/logo.svg" alt="剑指Offer-Javascript版-二维数组中的查找" height="28">
                 
                 </a>
                 <p class="is-size-7">

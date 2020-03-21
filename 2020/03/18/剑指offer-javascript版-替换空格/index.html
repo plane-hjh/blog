@@ -7,17 +7,22 @@
 
 <meta name="viewport" content="width=device-width, initial-scale=1, maximum-scale=1" />
 
-<title>归档 - plane&#39;s blog</title>
+<title>剑指Offer-Javascript版-替换空格 - plane&#39;s blog</title>
 
 
-    <meta property="og:type" content="website">
-<meta property="og:title" content="plane&#39;s blog">
-<meta property="og:url" content="http://yoursite.com/archives/index.html">
+    <meta name="description" content="对应LeetCode上的题目：面试题05. 替换空格  题目描述：请实现一个函数，把字符串 s 中的每个空格替换成”%20”。 例： 12输入：s = &quot;We are happy.&quot;输出：&quot;We%20are%20happy.&quot;">
+<meta name="keywords" content="字符串">
+<meta property="og:type" content="article">
+<meta property="og:title" content="剑指Offer-Javascript版-替换空格">
+<meta property="og:url" content="http://yoursite.com/2020/03/18/剑指offer-javascript版-替换空格/index.html">
 <meta property="og:site_name" content="plane&#39;s blog">
+<meta property="og:description" content="对应LeetCode上的题目：面试题05. 替换空格  题目描述：请实现一个函数，把字符串 s 中的每个空格替换成”%20”。 例： 12输入：s = &quot;We are happy.&quot;输出：&quot;We%20are%20happy.&quot;">
 <meta property="og:locale" content="zh-CN">
 <meta property="og:image" content="http://yoursite.com/images/og_image.png">
+<meta property="og:updated_time" content="2020-03-18T14:10:26.520Z">
 <meta name="twitter:card" content="summary">
-<meta name="twitter:title" content="plane&#39;s blog">
+<meta name="twitter:title" content="剑指Offer-Javascript版-替换空格">
+<meta name="twitter:description" content="对应LeetCode上的题目：面试题05. 替换空格  题目描述：请实现一个函数，把字符串 s 中的每个空格替换成”%20”。 例： 12输入：s = &quot;We are happy.&quot;输出：&quot;We%20are%20happy.&quot;">
 <meta name="twitter:image" content="http://yoursite.com/images/og_image.png">
 
 
@@ -76,7 +81,7 @@
         <div class="navbar-brand is-flex-center">
             <a class="navbar-item navbar-logo" href="/">
             
-                <img src="/images/logo.svg" alt="plane&#39;s blog" height="28">
+                <img src="/images/logo.svg" alt="剑指Offer-Javascript版-替换空格" height="28">
             
             </a>
         </div>
@@ -87,7 +92,7 @@
                 <a class="navbar-item"
                 href="/">Home</a>
                 
-                <a class="navbar-item is-active"
+                <a class="navbar-item"
                 href="/archives">Archives</a>
                 
                 <a class="navbar-item"
@@ -126,171 +131,130 @@
         <div class="container">
             <div class="columns">
                 <div class="column is-8-tablet is-8-desktop is-6-widescreen has-order-2 column-main">
+<div class="card">
+    
+    <div class="card-content article ">
         
-<div class="card widget">
+        <div class="level article-meta is-size-7 is-uppercase is-mobile is-overflow-x-auto">
+            <div class="level-left">
+                <time class="level-item has-text-grey" datetime="2020-03-18T13:29:41.000Z">2020-03-18</time>
+                
+                <div class="level-item">
+                <a class="has-link-grey -link" href="/categories/算法/">算法</a>
+                </div>
+                
+                
+                <span class="level-item has-text-grey">
+                    
+                    
+                    3 分钟 读完 (大约 422 个字)
+                </span>
+                
+                
+            </div>
+        </div>
+        
+        <h1 class="title is-size-3 is-size-4-mobile has-text-weight-normal">
+            
+                剑指Offer-Javascript版-替换空格
+            
+        </h1>
+        <div class="content">
+            <blockquote>
+<p>对应LeetCode上的题目：面试题05. 替换空格</p>
+</blockquote>
+<p><strong>题目描述</strong>：请实现一个函数，把字符串 s 中的每个空格替换成”%20”。</p>
+<p>例：</p>
+<figure class="highlight javascript"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br></pre></td><td class="code"><pre><span class="line">输入：s = <span class="string">"We are happy."</span></span><br><span class="line">输出：<span class="string">"We%20are%20happy."</span></span><br></pre></td></tr></table></figure>
+<a id="more"></a>
+<h2 id="题目描述"><a href="#题目描述" class="headerlink" title="题目描述"></a>题目描述</h2><p>请实现一个函数，把字符串 s 中的每个空格替换成”%20”。</p>
+<p>例：</p>
+<figure class="highlight javascript"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br></pre></td><td class="code"><pre><span class="line">输入：s = <span class="string">"We are happy."</span></span><br><span class="line">输出：<span class="string">"We%20are%20happy."</span></span><br></pre></td></tr></table></figure>
+<h2 id="解法一，正则表达式"><a href="#解法一，正则表达式" class="headerlink" title="解法一，正则表达式"></a>解法一，正则表达式</h2><p>字符串有一个 <code>replace</code> 方法，可以把字符串里面特定的字符转换成我们想要的字符</p>
+<figure class="highlight javascript"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br></pre></td><td class="code"><pre><span class="line"></span><br><span class="line"><span class="keyword">var</span> replaceSpace = <span class="function"><span class="keyword">function</span>(<span class="params">s</span>) </span>&#123;</span><br><span class="line">    <span class="keyword">if</span>(!s) <span class="keyword">return</span></span><br><span class="line"></span><br><span class="line">    <span class="keyword">return</span> s.replace(<span class="regexp">/ /g</span>, <span class="string">'%20'</span>)</span><br><span class="line">&#125;;</span><br></pre></td></tr></table></figure>
+<p>一句代码就搞定，这方法真香</p>
+<h2 id="解法二"><a href="#解法二" class="headerlink" title="解法二"></a>解法二</h2><p>使用字符串的分割 <code>split</code> 和 数组的分割 <code>join</code></p>
+<figure class="highlight javascript"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br></pre></td><td class="code"><pre><span class="line"></span><br><span class="line"><span class="keyword">var</span> replaceSpace = <span class="function"><span class="keyword">function</span>(<span class="params">s</span>) </span>&#123;</span><br><span class="line">    <span class="keyword">if</span>(!s) <span class="keyword">return</span></span><br><span class="line"></span><br><span class="line">    <span class="keyword">return</span> s.spilt(<span class="string">' '</span>).join(<span class="string">'%20'</span>)</span><br><span class="line">&#125;;</span><br></pre></td></tr></table></figure>
+<p>注意，虽然这种 <code>api</code> 是香，但是只能作为一种辅助的方法，面试官更多想考我们的算法能力和解题思路，这种只能用来当作题目的一种解法</p>
+<h2 id="解法三，双指针"><a href="#解法三，双指针" class="headerlink" title="解法三，双指针"></a>解法三，双指针</h2><p>遍历原字符串，统计空格和非空格字符个数，计算替换后的新字符的长度，准备两个指针，指针 i 指向原字符串，指针 j 指向新字符串</p>
+<figure class="highlight javascript"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br><span class="line">12</span><br><span class="line">13</span><br><span class="line">14</span><br><span class="line">15</span><br><span class="line">16</span><br><span class="line">17</span><br><span class="line">18</span><br><span class="line">19</span><br><span class="line">20</span><br><span class="line">21</span><br><span class="line">22</span><br><span class="line">23</span><br><span class="line">24</span><br><span class="line">25</span><br><span class="line">26</span><br><span class="line">27</span><br><span class="line">28</span><br><span class="line">29</span><br><span class="line">30</span><br><span class="line">31</span><br><span class="line">32</span><br><span class="line">33</span><br></pre></td><td class="code"><pre><span class="line"></span><br><span class="line"><span class="keyword">var</span> replaceSpace = <span class="function"><span class="keyword">function</span>(<span class="params">s</span>) </span>&#123;</span><br><span class="line">    <span class="keyword">if</span>(!s || !s.length) &#123;</span><br><span class="line">        <span class="keyword">return</span> <span class="string">""</span></span><br><span class="line">    &#125;</span><br><span class="line"></span><br><span class="line">    <span class="comment">// emptyNum 空格的个数</span></span><br><span class="line">    <span class="comment">// chNum 非空字符的个数</span></span><br><span class="line">    <span class="keyword">let</span> emptyNum = <span class="number">0</span>, chNum = <span class="number">0</span>;</span><br><span class="line"></span><br><span class="line">    <span class="keyword">for</span>(<span class="keyword">let</span> i = <span class="number">0</span>, len = s.length; i &lt; len; i++) &#123;</span><br><span class="line">        <span class="keyword">if</span>(s[i] === <span class="string">' '</span>) &#123;</span><br><span class="line">            ++emptyNum</span><br><span class="line">        &#125; <span class="keyword">else</span> &#123;</span><br><span class="line">            ++chNum</span><br><span class="line">        &#125;</span><br><span class="line">    &#125;</span><br><span class="line"></span><br><span class="line">    <span class="keyword">const</span> length = emptyNum * <span class="number">2</span> + chNum</span><br><span class="line">    <span class="keyword">const</span> chs = <span class="keyword">new</span> <span class="built_in">Array</span>(length)</span><br><span class="line">    <span class="comment">// i 是新字符串的下标，j是源字符串的下标</span></span><br><span class="line">    <span class="keyword">for</span>(<span class="keyword">let</span> i = <span class="number">0</span>, j = <span class="number">0</span>; j &lt; s.length; ++j) &#123;</span><br><span class="line">        <span class="keyword">if</span>(s[j] === <span class="string">" "</span>) &#123;</span><br><span class="line">            chs[i++] = <span class="string">"%"</span></span><br><span class="line">            chs[i++] = <span class="string">"2"</span></span><br><span class="line">            chs[i++] = <span class="string">"0"</span></span><br><span class="line">        &#125; <span class="keyword">else</span> &#123;</span><br><span class="line">            chs[i++] = s[j]</span><br><span class="line">        &#125;</span><br><span class="line">    &#125;</span><br><span class="line"></span><br><span class="line">    <span class="keyword">return</span> chs.join(<span class="string">""</span>)</span><br><span class="line">&#125;</span><br></pre></td></tr></table></figure>
+
+        </div>
+        
+        <div class="level is-size-7 is-uppercase">
+            <div class="level-start">
+                <div class="level-item">
+                    <span class="is-size-6 has-text-grey has-mr-7">#</span>
+                    <a class="has-link-grey -link" href="/tags/字符串/">字符串</a>
+                </div>
+            </div>
+        </div>
+        
+        
+        
+    </div>
+</div>
+
+
+
+<div class="card">
     <div class="card-content">
-        <h3 class="tag is-link">
-        2020
-        </h3>
-        <div class="timeline">
-        
-            <article class="media">
+        <h3 class="menu-label has-text-centered">喜欢这篇文章？打赏一下作者吧</h3>
+        <div class="buttons is-centered">
+            
                 
-                <div class="media-content">
-                    <div class="content">
-                        <time class="has-text-grey is-size-7 is-block is-uppercase" datetime="2020-03-21T09:08:04.000Z">2020-03-21</time>
-                        <a href="/2020/03/21/树的遍历/" class="title has-link-black-ter is-size-6 has-text-weight-normal">树</a>
-                        <div class="level article-meta is-mobile">
-                            <div class="level-left">
-                                
-                                <div class="level-item is-size-7 is-uppercase">
-                                <a class="has-link-grey -link" href="/categories/算法/">算法</a>
-                                </div>
-                                
-                            </div>
-                        </div>
-                    </div>
-                </div>
-            </article>
-        
-            <article class="media">
+<div class="notification is-danger">
+    You forgot to set the <code>qrcode</code> for Alipay. Please set it in <code>_config.yml</code>.
+</div>
+
                 
-                <div class="media-content">
-                    <div class="content">
-                        <time class="has-text-grey is-size-7 is-block is-uppercase" datetime="2020-03-19T13:13:35.000Z">2020-03-19</time>
-                        <a href="/2020/03/19/剑指offer-javascript版-重建二叉树/" class="title has-link-black-ter is-size-6 has-text-weight-normal">剑指Offer-Javascript版-重建二叉树</a>
-                        <div class="level article-meta is-mobile">
-                            <div class="level-left">
-                                
-                                <div class="level-item is-size-7 is-uppercase">
-                                <a class="has-link-grey -link" href="/categories/算法/">算法</a>
-                                </div>
-                                
-                            </div>
-                        </div>
-                    </div>
-                </div>
-            </article>
-        
-            <article class="media">
                 
-                <div class="media-content">
-                    <div class="content">
-                        <time class="has-text-grey is-size-7 is-block is-uppercase" datetime="2020-03-19T12:41:23.000Z">2020-03-19</time>
-                        <a href="/2020/03/19/剑指offer-javascript版-从尾到头打印链表/" class="title has-link-black-ter is-size-6 has-text-weight-normal">剑指Offer-Javascript版-从尾到头打印链表</a>
-                        <div class="level article-meta is-mobile">
-                            <div class="level-left">
-                                
-                                <div class="level-item is-size-7 is-uppercase">
-                                <a class="has-link-grey -link" href="/categories/算法/">算法</a>
-                                </div>
-                                
-                            </div>
-                        </div>
-                    </div>
-                </div>
-            </article>
-        
-            <article class="media">
+<div class="notification is-danger">
+    You forgot to set the <code>qrcode</code> for Wechat. Please set it in <code>_config.yml</code>.
+</div>
+
                 
-                <div class="media-content">
-                    <div class="content">
-                        <time class="has-text-grey is-size-7 is-block is-uppercase" datetime="2020-03-18T13:29:41.000Z">2020-03-18</time>
-                        <a href="/2020/03/18/剑指offer-javascript版-替换空格/" class="title has-link-black-ter is-size-6 has-text-weight-normal">剑指Offer-Javascript版-替换空格</a>
-                        <div class="level article-meta is-mobile">
-                            <div class="level-left">
-                                
-                                <div class="level-item is-size-7 is-uppercase">
-                                <a class="has-link-grey -link" href="/categories/算法/">算法</a>
-                                </div>
-                                
-                            </div>
-                        </div>
-                    </div>
-                </div>
-            </article>
-        
-            <article class="media">
+                <!-- Visit https://www.paypal.com/donate/buttons/ to get your donate button -->
+
+<div class="notification is-danger">
+    You forgot to set the <code>business</code> and <code>currency_code</code> for Paypal. Please set it in <code>_config.yml</code>.
+</div>
+
                 
-                <div class="media-content">
-                    <div class="content">
-                        <time class="has-text-grey is-size-7 is-block is-uppercase" datetime="2020-03-18T12:54:15.000Z">2020-03-18</time>
-                        <a href="/2020/03/18/剑指offer-javascript版-二维数组中的查找/" class="title has-link-black-ter is-size-6 has-text-weight-normal">剑指Offer-Javascript版-二维数组中的查找</a>
-                        <div class="level article-meta is-mobile">
-                            <div class="level-left">
-                                
-                                <div class="level-item is-size-7 is-uppercase">
-                                <a class="has-link-grey -link" href="/categories/算法/">算法</a>
-                                </div>
-                                
-                            </div>
-                        </div>
-                    </div>
-                </div>
-            </article>
-        
-            <article class="media">
                 
-                <div class="media-content">
-                    <div class="content">
-                        <time class="has-text-grey is-size-7 is-block is-uppercase" datetime="2020-03-17T23:34:00.000Z">2020-03-18</time>
-                        <a href="/2020/03/18/浏览器缓存/" class="title has-link-black-ter is-size-6 has-text-weight-normal">强缓存和协商缓存</a>
-                        <div class="level article-meta is-mobile">
-                            <div class="level-left">
-                                
-                                <div class="level-item is-size-7 is-uppercase">
-                                <a class="has-link-grey -link" href="/categories/http/">http</a>
-                                </div>
-                                
-                            </div>
-                        </div>
-                    </div>
-                </div>
-            </article>
-        
-            <article class="media">
+<div class="notification is-danger">
+    You forgot to set the <code>url</code> Patreon. Please set it in <code>_config.yml</code>.
+</div>
+
                 
-                <div class="media-content">
-                    <div class="content">
-                        <time class="has-text-grey is-size-7 is-block is-uppercase" datetime="2020-03-17T15:27:26.000Z">2020-03-17</time>
-                        <a href="/2020/03/17/如何理解javascript中的this/" class="title has-link-black-ter is-size-6 has-text-weight-normal">如何理解Javascript中的this</a>
-                        <div class="level article-meta is-mobile">
-                            <div class="level-left">
-                                
-                                <div class="level-item is-size-7 is-uppercase">
-                                <a class="has-link-grey -link" href="/categories/javascript/">javascript</a>
-                                </div>
-                                
-                            </div>
-                        </div>
-                    </div>
-                </div>
-            </article>
-        
-            <article class="media">
-                
-                <div class="media-content">
-                    <div class="content">
-                        <time class="has-text-grey is-size-7 is-block is-uppercase" datetime="2020-03-17T13:56:26.000Z">2020-03-17</time>
-                        <a href="/2020/03/17/剑指offer-javascript版-找出数组中的数字/" class="title has-link-black-ter is-size-6 has-text-weight-normal">剑指Offer-Javascript版-找出数组中的数字</a>
-                        <div class="level article-meta is-mobile">
-                            <div class="level-left">
-                                
-                                <div class="level-item is-size-7 is-uppercase">
-                                <a class="has-link-grey -link" href="/categories/算法/">算法</a>
-                                </div>
-                                
-                            </div>
-                        </div>
-                    </div>
-                </div>
-            </article>
-        
         </div>
     </div>
 </div>
 
-    
+
+
+<div class="card card-transparent">
+    <div class="level post-navigation is-flex-wrap is-mobile">
+        
+        <div class="level-start">
+            <a class="level level-item has-link-grey  article-nav-prev" href="/2020/03/19/剑指offer-javascript版-从尾到头打印链表/">
+                <i class="level-item fas fa-chevron-left"></i>
+                <span class="level-item">剑指Offer-Javascript版-从尾到头打印链表</span>
+            </a>
+        </div>
+        
+        
+        <div class="level-end">
+            <a class="level level-item has-link-grey  article-nav-next" href="/2020/03/18/剑指offer-javascript版-二维数组中的查找/">
+                <span class="level-item">剑指Offer-Javascript版-二维数组中的查找</span>
+                <i class="level-item fas fa-chevron-right"></i>
+            </a>
+        </div>
+        
+    </div>
+</div>
+
+
 </div>
                 
 
@@ -866,7 +830,7 @@
             <div class="level-start has-text-centered-mobile">
                 <a class="footer-logo is-block has-mb-6" href="/">
                 
-                    <img src="/images/logo.svg" alt="plane&#39;s blog" height="28">
+                    <img src="/images/logo.svg" alt="剑指Offer-Javascript版-替换空格" height="28">
                 
                 </a>
                 <p class="is-size-7">
