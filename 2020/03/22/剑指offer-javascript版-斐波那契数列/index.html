@@ -8,17 +8,22 @@
 
 <meta name="viewport" content="width=device-width, initial-scale=1, maximum-scale=1" />
 
-<title>归档 - plane&#39;s blog</title>
+<title>剑指Offer-Javascript版-斐波那契数列 - plane&#39;s blog</title>
 
 
-    <meta property="og:type" content="website">
-<meta property="og:title" content="plane&#39;s blog">
-<meta property="og:url" content="http://yoursite.com/blog/archives/index.html">
+    <meta name="description" content="题目描述：写一个函数，输入n，求斐波那契数列的第n项。斐波那契数列的定义如下： 12F(0) = 0,   F(1) = 1F(N) = F(N - 1) + F(N - 2), 其中 N &amp;gt; 1.">
+<meta name="keywords" content="递归">
+<meta property="og:type" content="article">
+<meta property="og:title" content="剑指Offer-Javascript版-斐波那契数列">
+<meta property="og:url" content="http://yoursite.com/blog/2020/03/22/剑指offer-javascript版-斐波那契数列/index.html">
 <meta property="og:site_name" content="plane&#39;s blog">
+<meta property="og:description" content="题目描述：写一个函数，输入n，求斐波那契数列的第n项。斐波那契数列的定义如下： 12F(0) = 0,   F(1) = 1F(N) = F(N - 1) + F(N - 2), 其中 N &amp;gt; 1.">
 <meta property="og:locale" content="zh-CN">
 <meta property="og:image" content="http://yoursite.com/blog/images/og_image.png">
+<meta property="og:updated_time" content="2020-03-22T09:08:42.672Z">
 <meta name="twitter:card" content="summary">
-<meta name="twitter:title" content="plane&#39;s blog">
+<meta name="twitter:title" content="剑指Offer-Javascript版-斐波那契数列">
+<meta name="twitter:description" content="题目描述：写一个函数，输入n，求斐波那契数列的第n项。斐波那契数列的定义如下： 12F(0) = 0,   F(1) = 1F(N) = F(N - 1) + F(N - 2), 其中 N &amp;gt; 1.">
 <meta name="twitter:image" content="http://yoursite.com/blog/images/og_image.png">
 
 
@@ -94,7 +99,7 @@
         <div class="navbar-brand is-flex-center">
             <a class="navbar-item navbar-logo" href="/blog/">
             
-                <img src="/blog/images/logo.svg" alt="plane&#39;s blog" height="28">
+                <img src="/blog/images/logo.svg" alt="剑指Offer-Javascript版-斐波那契数列" height="28">
             
             </a>
         </div>
@@ -105,7 +110,7 @@
                 <a class="navbar-item"
                 href="/blog/">Home</a>
                 
-                <a class="navbar-item is-active"
+                <a class="navbar-item"
                 href="/blog/archives">Archives</a>
                 
                 <a class="navbar-item"
@@ -141,228 +146,127 @@
         <div class="container">
             <div class="columns">
                 <div class="column is-8-tablet is-8-desktop is-6-widescreen has-order-2 column-main">
+<div class="card">
+    
+    <div class="card-content article ">
         
-<div class="card widget">
+        <div class="level article-meta is-size-7 is-uppercase is-mobile is-overflow-x-auto">
+            <div class="level-left">
+                <time class="level-item has-text-grey" datetime="2020-03-22T08:45:12.000Z">2020-03-22</time>
+                
+                <div class="level-item">
+                <a class="has-link-grey -link" href="/blog/categories/算法/">算法</a>
+                </div>
+                
+                
+                <span class="level-item has-text-grey">
+                    
+                    
+                    4 分钟 读完 (大约 545 个字)
+                </span>
+                
+                
+                <span class="level-item has-text-grey" id="busuanzi_container_page_pv">
+                    <i class="far fa-eye"></i>
+                    <span id="busuanzi_value_page_pv">0</span>次访问
+                </span>
+                
+            </div>
+        </div>
+        
+        <h1 class="title is-size-3 is-size-4-mobile has-text-weight-normal">
+            
+                剑指Offer-Javascript版-斐波那契数列
+            
+        </h1>
+        <div class="content">
+            <p><strong>题目描述</strong>：写一个函数，输入n，求斐波那契数列的第n项。斐波那契数列的定义如下：</p>
+<figure class="highlight js"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br></pre></td><td class="code"><pre><span class="line">F(<span class="number">0</span>) = <span class="number">0</span>,   F(<span class="number">1</span>) = <span class="number">1</span></span><br><span class="line">F(N) = F(N - <span class="number">1</span>) + F(N - <span class="number">2</span>), 其中 N &gt; <span class="number">1.</span></span><br></pre></td></tr></table></figure>
+<a id="more"></a>
+<h2 id="题目描述"><a href="#题目描述" class="headerlink" title="题目描述"></a>题目描述</h2><p>写一个函数，输入n，求斐波那契数列的第n项。斐波那契数列的定义如下：</p>
+<figure class="highlight js"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br></pre></td><td class="code"><pre><span class="line">F(<span class="number">0</span>) = <span class="number">0</span>,   F(<span class="number">1</span>) = <span class="number">1</span></span><br><span class="line">F(N) = F(N - <span class="number">1</span>) + F(N - <span class="number">2</span>), 其中 N &gt; <span class="number">1.</span></span><br></pre></td></tr></table></figure>
+<h2 id="解法一，递归"><a href="#解法一，递归" class="headerlink" title="解法一，递归"></a>解法一，递归</h2><p>由题目描述可以知道，斐波那契数列的第一项是 <code>0</code>，第一项是 <code>1</code> ，第 <code>n</code> 项是第 <code>n-1</code> 和第 <code>n-2</code>的和，那么我们就可以下手了</p>
+<figure class="highlight js"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br></pre></td><td class="code"><pre><span class="line"><span class="comment">// 递归</span></span><br><span class="line"><span class="keyword">const</span> fib = <span class="function">(<span class="params">n</span>) =&gt;</span> &#123;</span><br><span class="line">    <span class="keyword">if</span>(n === <span class="number">0</span>) <span class="keyword">return</span> <span class="number">0</span></span><br><span class="line"></span><br><span class="line">    <span class="keyword">if</span>(n === <span class="number">1</span>) <span class="keyword">return</span> <span class="number">1</span></span><br><span class="line"></span><br><span class="line">    <span class="keyword">return</span> fib(n - <span class="number">1</span>) + fib(n - <span class="number">2</span>)</span><br><span class="line">&#125;</span><br></pre></td></tr></table></figure>
+<h2 id="解法二，递归-备忘录"><a href="#解法二，递归-备忘录" class="headerlink" title="解法二，递归+备忘录"></a>解法二，递归+备忘录</h2><p>使用递归来解这道题可以说是相当简单了，但是有时候面试官并不想看到我们单纯的使用递归去解这一道题，因为计算量太多重复的了。例如我们在计算 <code>n=9</code> 的时候。</p>
+<figure class="highlight js"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br></pre></td><td class="code"><pre><span class="line">f(<span class="number">9</span>) = f(<span class="number">8</span>) + f(<span class="number">7</span>)</span><br><span class="line">那么</span><br><span class="line">f(<span class="number">8</span>) = f(<span class="number">7</span>) + f(<span class="number">6</span>)</span><br></pre></td></tr></table></figure>
+<p>可以知道<code>f(7)</code> 被计算了两次，以此类推可以知道，我们在计算 <code>f(9)</code> 的时候，重复了太多了计算量了。那么我们可以使用 <code>备忘录</code> 的解法把已经计算过的值保存下来，下次如果再计算相同的值的时候，直接从备忘录里面取就可以了</p>
+<figure class="highlight js"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br><span class="line">12</span><br><span class="line">13</span><br><span class="line">14</span><br><span class="line">15</span><br><span class="line">16</span><br><span class="line">17</span><br><span class="line">18</span><br></pre></td><td class="code"><pre><span class="line"><span class="comment">// 在动态规划的一种做法中，可以借助“备忘录”来实现结果的缓存，避免重复计算</span></span><br><span class="line"><span class="keyword">const</span> fib = <span class="function">(<span class="params">n</span>) =&gt;</span> &#123;</span><br><span class="line">    <span class="comment">// 备忘录</span></span><br><span class="line">    <span class="keyword">const</span> cache = &#123;</span><br><span class="line">        <span class="number">0</span>: <span class="number">0</span>,</span><br><span class="line">        <span class="number">1</span>: <span class="number">1</span></span><br><span class="line">    &#125;;</span><br><span class="line">    <span class="keyword">return</span> Fibonacci(n);</span><br><span class="line"></span><br><span class="line">    <span class="function"><span class="keyword">function</span> <span class="title">Fibonacci</span>(<span class="params">n</span>) </span>&#123;</span><br><span class="line">        <span class="keyword">if</span> (cache[n] !== <span class="literal">undefined</span>) &#123;</span><br><span class="line">            <span class="keyword">return</span> cache[n];</span><br><span class="line">        &#125;</span><br><span class="line"></span><br><span class="line">        cache[n] = Fibonacci(n - <span class="number">1</span>) + Fibonacci(n - <span class="number">2</span>);</span><br><span class="line">        <span class="keyword">return</span> cache[n];</span><br><span class="line">    &#125;</span><br><span class="line">&#125;;</span><br></pre></td></tr></table></figure>
+<h2 id="解法三，循环-备忘录"><a href="#解法三，循环-备忘录" class="headerlink" title="解法三，循环+备忘录"></a>解法三，循环+备忘录</h2><p>我们也可以使用循环来替代递归</p>
+<figure class="highlight js"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br><span class="line">12</span><br><span class="line">13</span><br><span class="line">14</span><br><span class="line">15</span><br><span class="line">16</span><br><span class="line">17</span><br><span class="line">18</span><br><span class="line">19</span><br><span class="line">20</span><br><span class="line">21</span><br><span class="line">22</span><br><span class="line">23</span><br><span class="line">24</span><br></pre></td><td class="code"><pre><span class="line"><span class="keyword">const</span> fib = <span class="function">(<span class="params">n</span>) =&gt;</span> &#123;</span><br><span class="line">    <span class="comment">// 备忘录</span></span><br><span class="line">    <span class="keyword">const</span> cache = &#123;</span><br><span class="line">        <span class="number">0</span>: <span class="number">0</span>,</span><br><span class="line">        <span class="number">1</span>: <span class="number">1</span></span><br><span class="line">    &#125;;</span><br><span class="line"></span><br><span class="line">    <span class="keyword">if</span>(n &lt; <span class="number">2</span>) &#123;</span><br><span class="line">        <span class="keyword">return</span> cache[n]</span><br><span class="line">    &#125;</span><br><span class="line"></span><br><span class="line">    <span class="keyword">let</span> fibNone = <span class="number">1</span></span><br><span class="line">    <span class="keyword">let</span> fibNtwo = <span class="number">0</span></span><br><span class="line">    <span class="keyword">let</span> fibN = <span class="number">0</span></span><br><span class="line"></span><br><span class="line">    <span class="keyword">for</span>(<span class="keyword">let</span> i = <span class="number">2</span>; i &lt;= n; i++) &#123;</span><br><span class="line">        fibN = fibNone + fibNtwo</span><br><span class="line"></span><br><span class="line">        fibNtwo = fibNone</span><br><span class="line">        fibNone = fibN</span><br><span class="line">    &#125;</span><br><span class="line"></span><br><span class="line">    <span class="keyword">return</span> fibN</span><br><span class="line">&#125;;</span><br></pre></td></tr></table></figure>
+<h2 id="扩展"><a href="#扩展" class="headerlink" title="扩展"></a>扩展</h2><p>类似题目：</p>
+<ul>
+<li>青蛙跳台阶问题</li>
+</ul>
+<p>一只青蛙一次可以跳上1级台阶，也可以跳上2级台阶。求该青蛙跳上一个 n 级的台阶总共有多少种跳法。</p>
+
+        </div>
+        
+        <div class="level is-size-7 is-uppercase">
+            <div class="level-start">
+                <div class="level-item">
+                    <span class="is-size-6 has-text-grey has-mr-7">#</span>
+                    <a class="has-link-grey -link" href="/blog/tags/递归/">递归</a>
+                </div>
+            </div>
+        </div>
+        
+        
+        
+        <div class="social-share"></div>
+<link rel="stylesheet" href="https://cdn.jsdelivr.net/npm/social-share.js@1.0.16/dist/css/share.min.css">
+<script src="https://cdn.jsdelivr.net/npm/social-share.js@1.0.16/dist/js/social-share.min.js"></script>
+        
+    </div>
+</div>
+
+
+
+<div class="card">
     <div class="card-content">
-        <h3 class="tag is-link">
-        2020
-        </h3>
-        <div class="timeline">
-        
-            <article class="media">
+        <h3 class="menu-label has-text-centered">喜欢这篇文章？打赏一下作者吧</h3>
+        <div class="buttons is-centered">
+            
                 
-                <div class="media-content">
-                    <div class="content">
-                        <time class="has-text-grey is-size-7 is-block is-uppercase" datetime="2020-03-22T08:45:12.000Z">2020-03-22</time>
-                        <a href="/blog/2020/03/22/剑指offer-javascript版-斐波那契数列/" class="title has-link-black-ter is-size-6 has-text-weight-normal">剑指Offer-Javascript版-斐波那契数列</a>
-                        <div class="level article-meta is-mobile">
-                            <div class="level-left">
-                                
-                                <div class="level-item is-size-7 is-uppercase">
-                                <a class="has-link-grey -link" href="/blog/categories/算法/">算法</a>
-                                </div>
-                                
-                            </div>
-                        </div>
-                    </div>
-                </div>
-            </article>
-        
-            <article class="media">
+<a class="button is-info donate">
+    <span class="icon is-small">
+        <i class="fab fa-alipay"></i>
+    </span>
+    <span>支付宝</span>
+    <div class="qrcode"><img src="/blog/images/alipay.jpeg" alt="支付宝"></div>
+</a>
+
                 
-                <div class="media-content">
-                    <div class="content">
-                        <time class="has-text-grey is-size-7 is-block is-uppercase" datetime="2020-03-22T08:33:29.000Z">2020-03-22</time>
-                        <a href="/blog/2020/03/22/剑指offer-javascript版-用两个栈实现队列/" class="title has-link-black-ter is-size-6 has-text-weight-normal">剑指Offer-Javascript版-用两个栈实现队列</a>
-                        <div class="level article-meta is-mobile">
-                            <div class="level-left">
-                                
-                                <div class="level-item is-size-7 is-uppercase">
-                                <a class="has-link-grey -link" href="/blog/categories/算法/">算法</a>
-                                </div>
-                                
-                            </div>
-                        </div>
-                    </div>
-                </div>
-            </article>
-        
-            <article class="media">
                 
-                <div class="media-content">
-                    <div class="content">
-                        <time class="has-text-grey is-size-7 is-block is-uppercase" datetime="2020-03-22T08:15:03.000Z">2020-03-22</time>
-                        <a href="/blog/2020/03/22/剑指offer-javascript版-二叉树的下一个节点/" class="title has-link-black-ter is-size-6 has-text-weight-normal">剑指Offer-Javascript版-二叉树的下一个节点</a>
-                        <div class="level article-meta is-mobile">
-                            <div class="level-left">
-                                
-                                <div class="level-item is-size-7 is-uppercase">
-                                <a class="has-link-grey -link" href="/blog/categories/算法/">算法</a>
-                                </div>
-                                
-                            </div>
-                        </div>
-                    </div>
-                </div>
-            </article>
-        
-            <article class="media">
+<a class="button is-success donate">
+    <span class="icon is-small">
+        <i class="fab fa-weixin"></i>
+    </span>
+    <span>微信</span>
+    <div class="qrcode"><img src="/blog/images/wechat.jpeg" alt="微信"></div>
+</a>
+
                 
-                <div class="media-content">
-                    <div class="content">
-                        <time class="has-text-grey is-size-7 is-block is-uppercase" datetime="2020-03-21T09:08:04.000Z">2020-03-21</time>
-                        <a href="/blog/2020/03/21/树/" class="title has-link-black-ter is-size-6 has-text-weight-normal">树</a>
-                        <div class="level article-meta is-mobile">
-                            <div class="level-left">
-                                
-                                <div class="level-item is-size-7 is-uppercase">
-                                <a class="has-link-grey -link" href="/blog/categories/算法/">算法</a>
-                                </div>
-                                
-                            </div>
-                        </div>
-                    </div>
-                </div>
-            </article>
-        
-            <article class="media">
-                
-                <div class="media-content">
-                    <div class="content">
-                        <time class="has-text-grey is-size-7 is-block is-uppercase" datetime="2020-03-19T13:13:35.000Z">2020-03-19</time>
-                        <a href="/blog/2020/03/19/剑指offer-javascript版-重建二叉树/" class="title has-link-black-ter is-size-6 has-text-weight-normal">剑指Offer-Javascript版-重建二叉树</a>
-                        <div class="level article-meta is-mobile">
-                            <div class="level-left">
-                                
-                                <div class="level-item is-size-7 is-uppercase">
-                                <a class="has-link-grey -link" href="/blog/categories/算法/">算法</a>
-                                </div>
-                                
-                            </div>
-                        </div>
-                    </div>
-                </div>
-            </article>
-        
-            <article class="media">
-                
-                <div class="media-content">
-                    <div class="content">
-                        <time class="has-text-grey is-size-7 is-block is-uppercase" datetime="2020-03-19T12:41:23.000Z">2020-03-19</time>
-                        <a href="/blog/2020/03/19/剑指offer-javascript版-从尾到头打印链表/" class="title has-link-black-ter is-size-6 has-text-weight-normal">剑指Offer-Javascript版-从尾到头打印链表</a>
-                        <div class="level article-meta is-mobile">
-                            <div class="level-left">
-                                
-                                <div class="level-item is-size-7 is-uppercase">
-                                <a class="has-link-grey -link" href="/blog/categories/算法/">算法</a>
-                                </div>
-                                
-                            </div>
-                        </div>
-                    </div>
-                </div>
-            </article>
-        
-            <article class="media">
-                
-                <div class="media-content">
-                    <div class="content">
-                        <time class="has-text-grey is-size-7 is-block is-uppercase" datetime="2020-03-18T13:29:41.000Z">2020-03-18</time>
-                        <a href="/blog/2020/03/18/剑指offer-javascript版-替换空格/" class="title has-link-black-ter is-size-6 has-text-weight-normal">剑指Offer-Javascript版-替换空格</a>
-                        <div class="level article-meta is-mobile">
-                            <div class="level-left">
-                                
-                                <div class="level-item is-size-7 is-uppercase">
-                                <a class="has-link-grey -link" href="/blog/categories/算法/">算法</a>
-                                </div>
-                                
-                            </div>
-                        </div>
-                    </div>
-                </div>
-            </article>
-        
-            <article class="media">
-                
-                <div class="media-content">
-                    <div class="content">
-                        <time class="has-text-grey is-size-7 is-block is-uppercase" datetime="2020-03-18T12:54:15.000Z">2020-03-18</time>
-                        <a href="/blog/2020/03/18/剑指offer-javascript版-二维数组中的查找/" class="title has-link-black-ter is-size-6 has-text-weight-normal">剑指Offer-Javascript版-二维数组中的查找</a>
-                        <div class="level article-meta is-mobile">
-                            <div class="level-left">
-                                
-                                <div class="level-item is-size-7 is-uppercase">
-                                <a class="has-link-grey -link" href="/blog/categories/算法/">算法</a>
-                                </div>
-                                
-                            </div>
-                        </div>
-                    </div>
-                </div>
-            </article>
-        
-            <article class="media">
-                
-                <div class="media-content">
-                    <div class="content">
-                        <time class="has-text-grey is-size-7 is-block is-uppercase" datetime="2020-03-17T23:34:00.000Z">2020-03-18</time>
-                        <a href="/blog/2020/03/18/浏览器缓存/" class="title has-link-black-ter is-size-6 has-text-weight-normal">强缓存和协商缓存</a>
-                        <div class="level article-meta is-mobile">
-                            <div class="level-left">
-                                
-                                <div class="level-item is-size-7 is-uppercase">
-                                <a class="has-link-grey -link" href="/blog/categories/http/">http</a>
-                                </div>
-                                
-                            </div>
-                        </div>
-                    </div>
-                </div>
-            </article>
-        
-            <article class="media">
-                
-                <div class="media-content">
-                    <div class="content">
-                        <time class="has-text-grey is-size-7 is-block is-uppercase" datetime="2020-03-17T15:27:26.000Z">2020-03-17</time>
-                        <a href="/blog/2020/03/17/如何理解javascript中的this/" class="title has-link-black-ter is-size-6 has-text-weight-normal">如何理解Javascript中的this</a>
-                        <div class="level article-meta is-mobile">
-                            <div class="level-left">
-                                
-                                <div class="level-item is-size-7 is-uppercase">
-                                <a class="has-link-grey -link" href="/blog/categories/javascript/">javascript</a>
-                                </div>
-                                
-                            </div>
-                        </div>
-                    </div>
-                </div>
-            </article>
-        
         </div>
     </div>
 </div>
 
-    
 
-    
+
 <div class="card card-transparent">
-    <nav class="pagination is-centered" role="navigation" aria-label="pagination">
-        <div class="pagination-previous is-invisible is-hidden-mobile">
-            <a class="is-flex-grow has-text-black-ter" href="/blog/archives/page/0/">上一页</a>
+    <div class="level post-navigation is-flex-wrap is-mobile">
+        
+        
+        <div class="level-end">
+            <a class="level level-item has-link-grey  article-nav-next" href="/blog/2020/03/22/剑指offer-javascript版-用两个栈实现队列/">
+                <span class="level-item">剑指Offer-Javascript版-用两个栈实现队列</span>
+                <i class="level-item fas fa-chevron-right"></i>
+            </a>
         </div>
-        <div class="pagination-next">
-            <a class="is-flex-grow has-text-black-ter" href="/blog/archives/page/2/">下一页</a>
-        </div>
-        <ul class="pagination-list is-hidden-mobile">
-            
-            <li><a class="pagination-link is-current" href="/blog/archives/">1</a></li>
-            
-            <li><a class="pagination-link has-text-black-ter" href="/blog/archives/page/2/">2</a></li>
-            
-        </ul>
-    </nav>
+        
+    </div>
 </div>
+
+
 </div>
                 
 
@@ -967,7 +871,7 @@
             <div class="level-start has-text-centered-mobile">
                 <a class="footer-logo is-block has-mb-6" href="/blog/">
                 
-                    <img src="/blog/images/logo.svg" alt="plane&#39;s blog" height="28">
+                    <img src="/blog/images/logo.svg" alt="剑指Offer-Javascript版-斐波那契数列" height="28">
                 
                 </a>
                 <p class="is-size-7">
