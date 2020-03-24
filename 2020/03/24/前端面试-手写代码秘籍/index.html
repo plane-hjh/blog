@@ -8,22 +8,22 @@
 
 <meta name="viewport" content="width=device-width, initial-scale=1, maximum-scale=1" />
 
-<title>前端面试-手写代码秘籍 - plane&#39;s blog</title>
+<title>前端各种源码实现 - plane&#39;s blog</title>
 
 
-    <meta name="description" content="在面试中，面试官多多少少都会要求面试者手写几道手写代码方法，这时候，不仅要求面试者能够熟练使用用这个方法，更是要求面试者对这个方法的原理。  实现一个 new 操作符  实现一个 instanceof  实现一个浅拷贝或者深拷贝  实现 call 和 apply  实现 防抖 和 节流  实现一个promise">
+    <meta name="description" content="在面试中，面试官多多少少都会要求面试者手写几道手写代码方法，这时候，不仅要求面试者能够熟练使用用这个方法，更是要求面试者对这个方法的原理。  实现一个 new 操作符  实现一个 instanceof  实现一个浅拷贝或者深拷贝  实现 call 和 apply  实现 防抖 和 节流  实现一个 promise">
 <meta name="keywords" content="javascript">
 <meta property="og:type" content="article">
-<meta property="og:title" content="前端面试-手写代码秘籍">
+<meta property="og:title" content="前端各种源码实现">
 <meta property="og:url" content="http://yoursite.com/blog/2020/03/24/前端面试-手写代码秘籍/index.html">
 <meta property="og:site_name" content="plane&#39;s blog">
-<meta property="og:description" content="在面试中，面试官多多少少都会要求面试者手写几道手写代码方法，这时候，不仅要求面试者能够熟练使用用这个方法，更是要求面试者对这个方法的原理。  实现一个 new 操作符  实现一个 instanceof  实现一个浅拷贝或者深拷贝  实现 call 和 apply  实现 防抖 和 节流  实现一个promise">
+<meta property="og:description" content="在面试中，面试官多多少少都会要求面试者手写几道手写代码方法，这时候，不仅要求面试者能够熟练使用用这个方法，更是要求面试者对这个方法的原理。  实现一个 new 操作符  实现一个 instanceof  实现一个浅拷贝或者深拷贝  实现 call 和 apply  实现 防抖 和 节流  实现一个 promise">
 <meta property="og:locale" content="zh-CN">
 <meta property="og:image" content="http://yoursite.com/blog/images/og_image.png">
-<meta property="og:updated_time" content="2020-03-23T23:22:11.819Z">
+<meta property="og:updated_time" content="2020-03-24T22:31:44.093Z">
 <meta name="twitter:card" content="summary">
-<meta name="twitter:title" content="前端面试-手写代码秘籍">
-<meta name="twitter:description" content="在面试中，面试官多多少少都会要求面试者手写几道手写代码方法，这时候，不仅要求面试者能够熟练使用用这个方法，更是要求面试者对这个方法的原理。  实现一个 new 操作符  实现一个 instanceof  实现一个浅拷贝或者深拷贝  实现 call 和 apply  实现 防抖 和 节流  实现一个promise">
+<meta name="twitter:title" content="前端各种源码实现">
+<meta name="twitter:description" content="在面试中，面试官多多少少都会要求面试者手写几道手写代码方法，这时候，不仅要求面试者能够熟练使用用这个方法，更是要求面试者对这个方法的原理。  实现一个 new 操作符  实现一个 instanceof  实现一个浅拷贝或者深拷贝  实现 call 和 apply  实现 防抖 和 节流  实现一个 promise">
 <meta name="twitter:image" content="http://yoursite.com/blog/images/og_image.png">
 
 
@@ -99,7 +99,7 @@
         <div class="navbar-brand is-flex-center">
             <a class="navbar-item navbar-logo" href="/blog/">
             
-                <img src="/blog/images/logo.svg" alt="前端面试-手写代码秘籍" height="28">
+                <img src="/blog/images/logo.svg" alt="前端各种源码实现" height="28">
             
             </a>
         </div>
@@ -162,7 +162,7 @@
                 <span class="level-item has-text-grey">
                     
                     
-                    9 分钟 读完 (大约 1334 个字)
+                    10 分钟 读完 (大约 1491 个字)
                 </span>
                 
                 
@@ -176,7 +176,7 @@
         
         <h1 class="title is-size-3 is-size-4-mobile has-text-weight-normal">
             
-                前端面试-手写代码秘籍
+                前端各种源码实现
             
         </h1>
         <div class="content">
@@ -192,7 +192,7 @@
 </li>
 <li><p>实现 防抖 和 节流</p>
 </li>
-<li><p>实现一个promise</p>
+<li><p>实现一个 promise</p>
 </li>
 </ul>
 <a id="more"></a>
@@ -243,6 +243,8 @@
 <figure class="highlight js"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br><span class="line">12</span><br><span class="line">13</span><br><span class="line">14</span><br></pre></td><td class="code"><pre><span class="line"><span class="keyword">const</span> debounce = <span class="function"><span class="keyword">function</span> (<span class="params">wait, fn</span>) </span>&#123;</span><br><span class="line">    <span class="keyword">let</span> timer</span><br><span class="line"></span><br><span class="line">    <span class="keyword">return</span> <span class="function">(<span class="params">...args</span>) =&gt;</span> &#123;</span><br><span class="line">        <span class="comment">// 如果事件一直在触发，那么就把上一次事件的定时器清除</span></span><br><span class="line">        <span class="keyword">if</span>(timer) &#123;</span><br><span class="line">            clearTimeOut(timer)</span><br><span class="line">        &#125;</span><br><span class="line"></span><br><span class="line">        timer = setTimeout(<span class="function"><span class="params">()</span> =&gt;</span> &#123;</span><br><span class="line">            fn.apply(<span class="keyword">this</span>, args)</span><br><span class="line">        &#125;, wait)</span><br><span class="line">    &#125;</span><br><span class="line">&#125;</span><br></pre></td></tr></table></figure>
 <p><code>防抖</code> 和 <code>节流</code> 本质是不一样的。<code>防抖</code> 是将多次执行变为最后一次执行，<code>节流</code> 是将多次执行变成每隔一段时间执行。</p>
 <figure class="highlight js"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br><span class="line">12</span><br><span class="line">13</span><br><span class="line">14</span><br></pre></td><td class="code"><pre><span class="line"><span class="keyword">const</span> throttle = <span class="function"><span class="keyword">function</span> (<span class="params">wait, fn</span>) </span>&#123;</span><br><span class="line">    <span class="keyword">let</span> preTime = <span class="number">0</span></span><br><span class="line"></span><br><span class="line">    <span class="keyword">return</span> <span class="function">(<span class="params">...args</span>) =&gt;</span> &#123;</span><br><span class="line">        <span class="comment">// 获取当前的时间戳</span></span><br><span class="line">        <span class="keyword">let</span> curTime = <span class="keyword">new</span> <span class="built_in">Date</span>().getTime()</span><br><span class="line"></span><br><span class="line">        <span class="comment">// 与上一个时间段的时间戳做对比</span></span><br><span class="line">        <span class="keyword">if</span>((curTime - preTime) &gt; wait) &#123;</span><br><span class="line">            preTime = curTime</span><br><span class="line">            fn.apply(<span class="keyword">this</span>, args)</span><br><span class="line">        &#125;</span><br><span class="line">    &#125;</span><br><span class="line">&#125;</span><br></pre></td></tr></table></figure>
+<h2 id="实现一个promise"><a href="#实现一个promise" class="headerlink" title="实现一个promise"></a>实现一个promise</h2><p>普通版</p>
+<figure class="highlight js"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br><span class="line">12</span><br><span class="line">13</span><br><span class="line">14</span><br><span class="line">15</span><br><span class="line">16</span><br><span class="line">17</span><br><span class="line">18</span><br><span class="line">19</span><br><span class="line">20</span><br><span class="line">21</span><br><span class="line">22</span><br><span class="line">23</span><br><span class="line">24</span><br><span class="line">25</span><br><span class="line">26</span><br><span class="line">27</span><br><span class="line">28</span><br><span class="line">29</span><br><span class="line">30</span><br><span class="line">31</span><br><span class="line">32</span><br><span class="line">33</span><br><span class="line">34</span><br><span class="line">35</span><br><span class="line">36</span><br><span class="line">37</span><br><span class="line">38</span><br><span class="line">39</span><br><span class="line">40</span><br><span class="line">41</span><br><span class="line">42</span><br><span class="line">43</span><br><span class="line">44</span><br><span class="line">45</span><br></pre></td><td class="code"><pre><span class="line"></span><br><span class="line"><span class="function"><span class="keyword">function</span> <span class="title">myPromise</span>(<span class="params">constructor</span>) </span>&#123;</span><br><span class="line">    <span class="keyword">let</span> self = <span class="keyword">this</span></span><br><span class="line"></span><br><span class="line">    self.status = <span class="string">"pending"</span> <span class="comment">// 定义状态改变前的初始状态</span></span><br><span class="line">    self.value = <span class="literal">undefined</span>  <span class="comment">// 定义状态为resolve的时候的状态</span></span><br><span class="line">    self.reason = <span class="literal">undefined</span> <span class="comment">// 定义状态为reject的时候的状态</span></span><br><span class="line"></span><br><span class="line">    <span class="function"><span class="keyword">function</span> <span class="title">resolve</span> (<span class="params"></span>) </span>&#123;</span><br><span class="line">        <span class="comment">// 两个pending，保证了状态的改变是不可逆的</span></span><br><span class="line">        <span class="keyword">if</span>(selft.status === <span class="string">'pending'</span>) &#123;</span><br><span class="line">            self.value = value</span><br><span class="line">            self.status = <span class="string">"resolved"</span></span><br><span class="line">        &#125;</span><br><span class="line">    &#125;</span><br><span class="line"></span><br><span class="line">    <span class="function"><span class="keyword">function</span> <span class="title">reject</span> (<span class="params"></span>) </span>&#123;</span><br><span class="line">        <span class="comment">// 两个pending，保证了状态的改变是不可逆的</span></span><br><span class="line">        <span class="keyword">if</span>(selft.status === <span class="string">'pending'</span>) &#123;</span><br><span class="line">            self.reason = reason</span><br><span class="line">            self.status = <span class="string">"rejectd"</span></span><br><span class="line">        &#125;</span><br><span class="line">    &#125;</span><br><span class="line"></span><br><span class="line">    <span class="comment">//捕获构造异常</span></span><br><span class="line">    <span class="keyword">try</span>&#123;</span><br><span class="line">        <span class="keyword">constructor</span>(resolve, reject)</span><br><span class="line">    &#125; catch(e) &#123;</span><br><span class="line">        reject(e)</span><br><span class="line">    &#125;</span><br><span class="line">&#125;</span><br><span class="line"></span><br><span class="line">myPromise.prototype.then = <span class="function"><span class="keyword">function</span>(<span class="params">onFullfilled, onRejected</span>) </span>&#123;</span><br><span class="line">    <span class="keyword">let</span> self = <span class="keyword">this</span></span><br><span class="line"></span><br><span class="line">    <span class="keyword">switch</span>(self.status) &#123;</span><br><span class="line">        <span class="keyword">case</span> <span class="string">"resolved"</span>:</span><br><span class="line">            onFullfilled(self.value)</span><br><span class="line">            <span class="keyword">break</span></span><br><span class="line">        <span class="keyword">case</span> <span class="string">"rejected"</span>:</span><br><span class="line">            onRejected(self.value)</span><br><span class="line">            <span class="keyword">break</span></span><br><span class="line">        <span class="keyword">default</span></span><br><span class="line">    &#125;</span><br><span class="line">&#125;</span><br></pre></td></tr></table></figure>
 
         </div>
         
@@ -419,14 +421,14 @@
             
             <a href="/blog/2020/03/24/前端面试-手写代码秘籍/" class="media-left">
                 <p class="image is-64x64">
-                    <img class="thumbnail" src="/blog/images/thumbnail.svg" alt="前端面试-手写代码秘籍">
+                    <img class="thumbnail" src="/blog/images/thumbnail.svg" alt="前端各种源码实现">
                 </p>
             </a>
             
             <div class="media-content">
                 <div class="content">
                     <div><time class="has-text-grey is-size-7 is-uppercase" datetime="2020-03-23T22:12:09.000Z">2020-03-24</time></div>
-                    <a href="/blog/2020/03/24/前端面试-手写代码秘籍/" class="title has-link-black-ter is-size-6 has-text-weight-normal">前端面试-手写代码秘籍</a>
+                    <a href="/blog/2020/03/24/前端面试-手写代码秘籍/" class="title has-link-black-ter is-size-6 has-text-weight-normal">前端各种源码实现</a>
                     <p class="is-size-7 is-uppercase">
                         <a class="has-link-grey -link" href="/blog/categories/javascript/">javascript</a>
                     </p>
@@ -916,7 +918,7 @@
             <div class="level-start has-text-centered-mobile">
                 <a class="footer-logo is-block has-mb-6" href="/blog/">
                 
-                    <img src="/blog/images/logo.svg" alt="前端面试-手写代码秘籍" height="28">
+                    <img src="/blog/images/logo.svg" alt="前端各种源码实现" height="28">
                 
                 </a>
                 <p class="is-size-7">
