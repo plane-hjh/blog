@@ -155,9 +155,146 @@
     
 <div class="card articleHover">
     
+    <div class="card-content article ">
+        
+        <div class="level article-meta is-size-7 is-uppercase is-mobile is-overflow-x-auto">
+            <div class="level-left">
+                <time class="level-item has-text-grey" datetime="2020-04-13T22:44:09.000Z">2020-04-14</time>
+                
+                <div class="level-item">
+                <a class="has-link-grey -link" href="/blog/categories/javascript/">javascript</a>
+                </div>
+                
+                
+                <span class="level-item has-text-grey">
+                    
+                    
+                    8 分钟 读完 (大约 1153 个字)
+                </span>
+                
+                
+            </div>
+        </div>
+        
+        <h1 class="title is-size-3 is-size-4-mobile has-text-weight-normal">
+            
+                <a class="has-link-black-ter" href="/blog/2020/04/14/JavaScript深入理解之继承/">JavaScript深入理解之继承</a>
+            
+        </h1>
+        <div class="content">
+            <p>本文更像是Javascript的笔记汇总</p>
+<p>对于使用过基于类的语言(如java或C++) 的开发人员来说，javascript有点迷，因为它的动态的，并且本身不提供一个class实现。虽然ES6中引入了 <code>class</code> 关键字，但是这只是语法糖，javascript仍然是基于原型实现的。</p>
+<h2 id="1-基于原型链的继承"><a href="#1-基于原型链的继承" class="headerlink" title="1.基于原型链的继承"></a>1.基于原型链的继承</h2><p>每个实例对象（Object）都有一个私有属性（称之为<strong>proto</strong>）指向它的构造函数的原型对象（prototype）。该原型对象也有一个自己的原型对象（<strong>proto</strong>）,层层向上直到一个对象的原型对象为 <code>null</code>，根据定义，<code>null</code> 没有原型，并作为这个原型链中的最后一个环节</p>
+<figure class="highlight js"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br><span class="line">12</span><br><span class="line">13</span><br><span class="line">14</span><br><span class="line">15</span><br><span class="line">16</span><br><span class="line">17</span><br><span class="line">18</span><br><span class="line">19</span><br><span class="line">20</span><br><span class="line">21</span><br><span class="line">22</span><br><span class="line">23</span><br><span class="line">24</span><br><span class="line">25</span><br><span class="line">26</span><br></pre></td><td class="code"><pre><span class="line"><span class="function"><span class="keyword">function</span> <span class="title">Parent</span>(<span class="params"></span>) </span>&#123;</span><br><span class="line">    <span class="keyword">this</span>.name = <span class="string">'jane'</span></span><br><span class="line">    <span class="keyword">this</span>.list = [<span class="number">1</span>,<span class="number">2</span>]</span><br><span class="line">&#125;</span><br><span class="line"></span><br><span class="line">Parent.prototype.getName = <span class="function"><span class="keyword">function</span>(<span class="params"></span>) </span>&#123;</span><br><span class="line">    <span class="built_in">console</span>.log(<span class="keyword">this</span>.name)</span><br><span class="line">&#125;</span><br><span class="line"></span><br><span class="line"><span class="function"><span class="keyword">function</span> <span class="title">Child</span>(<span class="params"></span>) </span>&#123;</span><br><span class="line"></span><br><span class="line">&#125;</span><br><span class="line"></span><br><span class="line"><span class="comment">// Child的原型是Parent的实例</span></span><br><span class="line">Child.prototype = <span class="keyword">new</span> Parent()</span><br><span class="line"></span><br><span class="line"><span class="keyword">let</span> child1 = <span class="keyword">new</span> Child()</span><br><span class="line">child1.name = <span class="string">"tony"</span></span><br><span class="line">child1.list.push(<span class="number">3</span>)</span><br><span class="line"><span class="built_in">console</span>.log(child1.name)    <span class="comment">// tony</span></span><br><span class="line"><span class="built_in">console</span>.log(child1.list)    <span class="comment">// [1,2,3]</span></span><br><span class="line"></span><br><span class="line"><span class="keyword">let</span> child2 = <span class="keyword">new</span> Child()</span><br><span class="line"><span class="built_in">console</span>.log(child2.name)    <span class="comment">// jane</span></span><br><span class="line"><span class="comment">// 引用类型的属性被所有实例共享</span></span><br><span class="line"><span class="built_in">console</span>.log(child2.list)    <span class="comment">// [1,2,3]</span></span><br></pre></td></tr></table></figure>
+<p>缺点：</p>
+<ul>
+<li>引用类型的属性被所有实例共享</li>
+<li>在创建 Child 的实例时，不能向Parent传参</li>
+</ul>
+<h2 id="2-构造函数继承"><a href="#2-构造函数继承" class="headerlink" title="2.构造函数继承"></a>2.构造函数继承</h2><p>即在子类型构造函数内部调用父类型（超类型）构造函数，因此可以使用<code>apply()</code> 和 <code>call()</code> 方法在新创建的对象上执行构造函数</p>
+<figure class="highlight js"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br><span class="line">12</span><br><span class="line">13</span><br><span class="line">14</span><br><span class="line">15</span><br><span class="line">16</span><br><span class="line">17</span><br><span class="line">18</span><br></pre></td><td class="code"><pre><span class="line"><span class="function"><span class="keyword">function</span> <span class="title">Parent</span>(<span class="params">name</span>) </span>&#123;</span><br><span class="line">    <span class="keyword">this</span>.name = name</span><br><span class="line">    <span class="keyword">this</span>.list = [<span class="number">1</span>,<span class="number">2</span>]</span><br><span class="line">&#125;</span><br><span class="line"></span><br><span class="line"><span class="function"><span class="keyword">function</span> <span class="title">Child</span>(<span class="params">name</span>) </span>&#123;</span><br><span class="line">    Parent.call(<span class="keyword">this</span>, name)</span><br><span class="line">&#125;</span><br><span class="line"></span><br><span class="line"><span class="keyword">let</span> child1 = <span class="keyword">new</span> Child(<span class="string">'tony'</span>)</span><br><span class="line">child1.list.push(<span class="number">3</span>)</span><br><span class="line"><span class="built_in">console</span>.log(child1.name)    <span class="comment">// tony</span></span><br><span class="line"><span class="built_in">console</span>.log(child1.list)    <span class="comment">// [1,2,3]</span></span><br><span class="line"></span><br><span class="line"><span class="keyword">let</span> child2 = <span class="keyword">new</span> Child(<span class="string">'jane'</span>)</span><br><span class="line"><span class="built_in">console</span>.log(child2.name)    <span class="comment">// jane</span></span><br><span class="line"><span class="comment">// 引用类型的属性被所有实例共享</span></span><br><span class="line"><span class="built_in">console</span>.log(child2.list)    <span class="comment">// [1,2]</span></span><br></pre></td></tr></table></figure>
+<p>优点：</p>
+<ul>
+<li>避免了引用类型的属性被所有实例共享</li>
+<li>可以在<code>Child</code>中向<code>Parent</code>传值</li>
+</ul>
+<p>缺点：</p>
+<ul>
+<li>方法都在构造函数中定义，每次创建实例都会创建一遍方法</li>
+</ul>
+<h2 id="3-组合继承（原型继承-构造函数继承）"><a href="#3-组合继承（原型继承-构造函数继承）" class="headerlink" title="3.组合继承（原型继承+构造函数继承）"></a>3.组合继承（原型继承+构造函数继承）</h2><p>指的是将原型继承和构造函数继承组合到一起，从而发挥二者之长</p>
+<figure class="highlight js"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br><span class="line">12</span><br><span class="line">13</span><br><span class="line">14</span><br><span class="line">15</span><br><span class="line">16</span><br><span class="line">17</span><br><span class="line">18</span><br><span class="line">19</span><br><span class="line">20</span><br><span class="line">21</span><br><span class="line">22</span><br><span class="line">23</span><br><span class="line">24</span><br><span class="line">25</span><br><span class="line">26</span><br></pre></td><td class="code"><pre><span class="line"><span class="function"><span class="keyword">function</span> <span class="title">Parent</span>(<span class="params">name</span>) </span>&#123;</span><br><span class="line">    <span class="keyword">this</span>.name = name</span><br><span class="line">    <span class="keyword">this</span>.list = [<span class="number">1</span>,<span class="number">2</span>]</span><br><span class="line">&#125;</span><br><span class="line"></span><br><span class="line"><span class="function"><span class="keyword">function</span> <span class="title">Child</span>(<span class="params">name</span>) </span>&#123;</span><br><span class="line">    <span class="comment">// 构造函数继承</span></span><br><span class="line">    Parent.call(<span class="keyword">this</span>, name)</span><br><span class="line">&#125;</span><br><span class="line"></span><br><span class="line"><span class="comment">// 原型继承</span></span><br><span class="line">Child.prototype = <span class="keyword">new</span> Parent()</span><br><span class="line">Child.prototype.constructor = Child;</span><br><span class="line">Child.prototype.getName = <span class="function"><span class="keyword">function</span>(<span class="params"></span>)</span>&#123;</span><br><span class="line">    <span class="built_in">console</span>.log(<span class="keyword">this</span>.name)</span><br><span class="line">&#125;</span><br><span class="line"></span><br><span class="line"><span class="keyword">let</span> child1 = <span class="keyword">new</span> Child(<span class="string">'tony'</span>)</span><br><span class="line">child1.list.push(<span class="number">3</span>)</span><br><span class="line"><span class="built_in">console</span>.log(child1.name)    <span class="comment">// tony</span></span><br><span class="line"><span class="built_in">console</span>.log(child1.list)    <span class="comment">// [1,2,3]</span></span><br><span class="line"></span><br><span class="line"><span class="keyword">let</span> child2 = <span class="keyword">new</span> Child(<span class="string">'jane'</span>)</span><br><span class="line"><span class="built_in">console</span>.log(child2.name)    <span class="comment">// jane</span></span><br><span class="line"><span class="comment">// 引用类型的属性被所有实例共享</span></span><br><span class="line"><span class="built_in">console</span>.log(child2.list)    <span class="comment">// [1,2]</span></span><br></pre></td></tr></table></figure>
+<p>避免了原型链继承和构造函数继承的缺陷，融合了它们的优点，<strong>是最常用的继承模式</strong></p>
+<h2 id="4-原型式继承"><a href="#4-原型式继承" class="headerlink" title="4.原型式继承"></a>4.原型式继承</h2><p>借助原型可以基于已有的对象创建新对象，同时不用创建自定义类型</p>
+<figure class="highlight js"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br></pre></td><td class="code"><pre><span class="line"><span class="function"><span class="keyword">function</span> <span class="title">object</span>(<span class="params">o</span>) </span>&#123;</span><br><span class="line">    <span class="function"><span class="keyword">function</span> <span class="title">F</span>(<span class="params"></span>)</span>&#123;&#125;</span><br><span class="line"></span><br><span class="line">    F.prototype = o;</span><br><span class="line"></span><br><span class="line">    <span class="keyword">return</span> <span class="keyword">new</span> F()</span><br><span class="line">&#125;</span><br></pre></td></tr></table></figure>
+<p>ES6新增的<code>Object.create()</code> 和 object 方法的行为一样</p>
+<p>缺点：</p>
+<ul>
+<li>引用类型值的属性始终都会共享相应的值，就像原型模式一样</li>
+</ul>
+<h2 id="5-寄生式继承"><a href="#5-寄生式继承" class="headerlink" title="5.寄生式继承"></a>5.寄生式继承</h2><p>创建一个仅用于封装继承过程的函数，该函数在内部以某种形式来做增强对象，最后返回对象。</p>
+<figure class="highlight js"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br></pre></td><td class="code"><pre><span class="line"><span class="function"><span class="keyword">function</span> <span class="title">createObj</span> (<span class="params">o</span>) </span>&#123;</span><br><span class="line">    <span class="keyword">var</span> clone = <span class="built_in">Object</span>.create(o);</span><br><span class="line">    clone.sayName = <span class="function"><span class="keyword">function</span> (<span class="params"></span>) </span>&#123;</span><br><span class="line">        <span class="built_in">console</span>.log(<span class="string">'hi'</span>);</span><br><span class="line">    &#125;</span><br><span class="line">    <span class="keyword">return</span> clone;</span><br><span class="line">&#125;</span><br></pre></td></tr></table></figure>
+<p>缺点：</p>
+<ul>
+<li>跟借用构造函数模式一样，每次创建对象都会创建一遍方法。</li>
+</ul>
+<h2 id="6-寄生组合式继承"><a href="#6-寄生组合式继承" class="headerlink" title="6.寄生组合式继承"></a>6.寄生组合式继承</h2><p>组合继承是最常用的继承模式，但是组合继承也有缺点，那就是会调用两次超类型构造函数</p>
+<ol>
+<li><p>创建子类型原型的时候</p>
+</li>
+<li><p>子类型构造函数内部</p>
+</li>
+</ol>
+<figure class="highlight js"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br><span class="line">12</span><br><span class="line">13</span><br><span class="line">14</span><br><span class="line">15</span><br><span class="line">16</span><br></pre></td><td class="code"><pre><span class="line"><span class="function"><span class="keyword">function</span> <span class="title">Parent</span>(<span class="params">name</span>) </span>&#123;</span><br><span class="line">    <span class="keyword">this</span>.name = name</span><br><span class="line">    <span class="keyword">this</span>.list = [<span class="number">1</span>,<span class="number">2</span>]</span><br><span class="line">&#125;</span><br><span class="line"></span><br><span class="line"><span class="function"><span class="keyword">function</span> <span class="title">Child</span>(<span class="params">name</span>) </span>&#123;</span><br><span class="line">    <span class="comment">// 第二次子类型构造函数内部</span></span><br><span class="line">    Parent.call(<span class="keyword">this</span>, name)</span><br><span class="line">&#125;</span><br><span class="line"></span><br><span class="line"><span class="comment">// 第一次创建子类型原型的时候</span></span><br><span class="line">Child.prototype = <span class="keyword">new</span> Parent()</span><br><span class="line">Child.prototype.constructor = Child;</span><br><span class="line">Child.prototype.getName = <span class="function"><span class="keyword">function</span>(<span class="params"></span>)</span>&#123;</span><br><span class="line">    <span class="built_in">console</span>.log(<span class="keyword">this</span>.name)</span><br><span class="line">&#125;</span><br></pre></td></tr></table></figure>
+<p>所谓的寄生组合式继承，就是借用构造函数来继承属性，通过原型链的混成形式来继承方法</p>
+<figure class="highlight js"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br><span class="line">12</span><br><span class="line">13</span><br><span class="line">14</span><br></pre></td><td class="code"><pre><span class="line"><span class="function"><span class="keyword">function</span> <span class="title">object</span>(<span class="params">o</span>) </span>&#123;</span><br><span class="line">    <span class="function"><span class="keyword">function</span> <span class="title">F</span>(<span class="params"></span>) </span>&#123;&#125;</span><br><span class="line">    F.prototype = o;</span><br><span class="line">    <span class="keyword">return</span> <span class="keyword">new</span> F();</span><br><span class="line">&#125;</span><br><span class="line"></span><br><span class="line"><span class="function"><span class="keyword">function</span> <span class="title">prototype</span>(<span class="params">child, parent</span>) </span>&#123;</span><br><span class="line">    <span class="keyword">var</span> prototype = object(parent.prototype);</span><br><span class="line">    prototype.constructor = child;</span><br><span class="line">    child.prototype = prototype;</span><br><span class="line">&#125;</span><br><span class="line"></span><br><span class="line"><span class="comment">// 当我们使用的时候：</span></span><br><span class="line">prototype(Child, Parent);</span><br></pre></td></tr></table></figure>
+<p>这种方式的高效率体现它只调用了一次 Parent 构造函数，并且因此避免了在 Parent.prototype 上面创建不必要的、多余的属性。与此同时，原型链还能保持不变；因此，还能够正常使用 instanceof 和 isPrototypeOf。开发人员普遍认为寄生组合式继承是引用类型最理想的继承范式。</p>
+
+        </div>
+        
+        
+        
+    </div>
+</div>
+
+<!-- 
+ -->
+
+
+
+
+
+    
+<div class="card articleHover">
+    
+    <div class="card-content article ">
+        
+        <div class="level article-meta is-size-7 is-uppercase is-mobile is-overflow-x-auto">
+            <div class="level-left">
+                <time class="level-item has-text-grey" datetime="2020-03-30T22:35:58.000Z">2020-03-31</time>
+                
+                <div class="level-item">
+                <a class="has-link-grey -link" href="/blog/categories/javascript/">javascript</a>
+                </div>
+                
+                
+                <span class="level-item has-text-grey">
+                    
+                    
+                    几秒 读完 (大约 0 个字)
+                </span>
+                
+                
+            </div>
+        </div>
+        
+        <h1 class="title is-size-3 is-size-4-mobile has-text-weight-normal">
+            
+                <a class="has-link-black-ter" href="/blog/2020/03/31/JavaScript深入理解之对象创建/">JavaScript深入理解之对象创建</a>
+            
+        </h1>
+        <div class="content">
+            
+        </div>
+        
+        
+        
+    </div>
+</div>
+
+<!-- 
+ -->
+
+
+
+
+
+    
+<div class="card articleHover">
+    
     <div class="card-image">
-        <a href="/blog/2020/03/24/前端面试-手写代码秘籍/" class="image is-7by1">
-            <img class="thumbnail" src="https://images.pexels.com/photos/3635300/pexels-photo-3635300.jpeg?auto=compress&amp;cs=tinysrgb&amp;dpr=1&amp;w=500" alt="Js各种源码实现">
+        <a href="/blog/2020/03/24/Javascript深入理解之手写代码/" class="image is-7by1">
+            <img class="thumbnail" src="https://images.pexels.com/photos/3635300/pexels-photo-3635300.jpeg?auto=compress&amp;cs=tinysrgb&amp;dpr=1&amp;w=500" alt="JavaScript深入理解之手写代码">
         </a>
     </div>
     
@@ -184,7 +321,7 @@
         
         <h1 class="title is-size-3 is-size-4-mobile has-text-weight-normal">
             
-                <a class="has-link-black-ter" href="/blog/2020/03/24/前端面试-手写代码秘籍/">Js各种源码实现</a>
+                <a class="has-link-black-ter" href="/blog/2020/03/24/Javascript深入理解之手写代码/">JavaScript深入理解之手写代码</a>
             
         </h1>
         <div class="content">
@@ -195,7 +332,7 @@
         <div class="level is-mobile">
             <div class="level-start">
                 <div class="level-item">
-                <a class="button is-size-7 is-light" href="/blog/2020/03/24/前端面试-手写代码秘籍/#more">阅读更多</a>
+                <a class="button is-size-7 is-light" href="/blog/2020/03/24/Javascript深入理解之手写代码/#more">阅读更多</a>
                 </div>
             </div>
         </div>
@@ -215,8 +352,8 @@
 <div class="card articleHover">
     
     <div class="card-image">
-        <a href="/blog/2020/03/17/如何理解javascript中的this/" class="image is-7by1">
-            <img class="thumbnail" src="https://images.pexels.com/photos/3617500/pexels-photo-3617500.jpeg?auto=compress&amp;cs=tinysrgb&amp;dpr=1&amp;w=500" alt="如何理解Javascript中的this">
+        <a href="/blog/2020/03/17/JavaScript深入理解之this/" class="image is-7by1">
+            <img class="thumbnail" src="https://images.pexels.com/photos/3617500/pexels-photo-3617500.jpeg?auto=compress&amp;cs=tinysrgb&amp;dpr=1&amp;w=500" alt="Javascript深入理解之this">
         </a>
     </div>
     
@@ -243,7 +380,7 @@
         
         <h1 class="title is-size-3 is-size-4-mobile has-text-weight-normal">
             
-                <a class="has-link-black-ter" href="/blog/2020/03/17/如何理解javascript中的this/">如何理解Javascript中的this</a>
+                <a class="has-link-black-ter" href="/blog/2020/03/17/JavaScript深入理解之this/">Javascript深入理解之this</a>
             
         </h1>
         <div class="content">
@@ -254,7 +391,7 @@
         <div class="level is-mobile">
             <div class="level-start">
                 <div class="level-item">
-                <a class="button is-size-7 is-light" href="/blog/2020/03/17/如何理解javascript中的this/#more">阅读更多</a>
+                <a class="button is-size-7 is-light" href="/blog/2020/03/17/JavaScript深入理解之this/#more">阅读更多</a>
                 </div>
             </div>
         </div>
@@ -315,7 +452,7 @@
                     </p>
                     <a href="/blog/archives">
                         <p class="title has-text-weight-normal">
-                            15
+                            17
                         </p>
                     </a>
                 </div>
@@ -363,7 +500,7 @@
         <h3 class="menu-label">
             标签云
         </h3>
-        <a href="/blog/tags/http/" style="font-size: 10px;">http</a> <a href="/blog/tags/javascript/" style="font-size: 15px;">javascript</a> <a href="/blog/tags/二分查找/" style="font-size: 10px;">二分查找</a> <a href="/blog/tags/二叉树/" style="font-size: 20px;">二叉树</a> <a href="/blog/tags/动态规划/" style="font-size: 10px;">动态规划</a> <a href="/blog/tags/回溯法/" style="font-size: 10px;">回溯法</a> <a href="/blog/tags/字符串/" style="font-size: 10px;">字符串</a> <a href="/blog/tags/数组/" style="font-size: 15px;">数组</a> <a href="/blog/tags/栈/" style="font-size: 15px;">栈</a> <a href="/blog/tags/树/" style="font-size: 15px;">树</a> <a href="/blog/tags/缓存/" style="font-size: 10px;">缓存</a> <a href="/blog/tags/贪心算法/" style="font-size: 10px;">贪心算法</a> <a href="/blog/tags/递归/" style="font-size: 10px;">递归</a> <a href="/blog/tags/链表/" style="font-size: 10px;">链表</a> <a href="/blog/tags/队列/" style="font-size: 10px;">队列</a>
+        <a href="/blog/tags/http/" style="font-size: 10px;">http</a> <a href="/blog/tags/javascript/" style="font-size: 20px;">javascript</a> <a href="/blog/tags/二分查找/" style="font-size: 10px;">二分查找</a> <a href="/blog/tags/二叉树/" style="font-size: 16.67px;">二叉树</a> <a href="/blog/tags/动态规划/" style="font-size: 10px;">动态规划</a> <a href="/blog/tags/回溯法/" style="font-size: 10px;">回溯法</a> <a href="/blog/tags/字符串/" style="font-size: 10px;">字符串</a> <a href="/blog/tags/数组/" style="font-size: 13.33px;">数组</a> <a href="/blog/tags/栈/" style="font-size: 13.33px;">栈</a> <a href="/blog/tags/树/" style="font-size: 13.33px;">树</a> <a href="/blog/tags/缓存/" style="font-size: 10px;">缓存</a> <a href="/blog/tags/贪心算法/" style="font-size: 10px;">贪心算法</a> <a href="/blog/tags/递归/" style="font-size: 10px;">递归</a> <a href="/blog/tags/链表/" style="font-size: 10px;">链表</a> <a href="/blog/tags/队列/" style="font-size: 10px;">队列</a>
     </div>
 </div>
     
@@ -372,6 +509,44 @@
         <h3 class="menu-label">
             最新文章
         </h3>
+        
+        <article class="media">
+            
+            <a href="/blog/2020/04/14/JavaScript深入理解之继承/" class="media-left">
+                <p class="image is-64x64">
+                    <img class="thumbnail" src="/blog/images/thumbnail.svg" alt="JavaScript深入理解之继承">
+                </p>
+            </a>
+            
+            <div class="media-content">
+                <div class="content">
+                    <div><time class="has-text-grey is-size-7 is-uppercase" datetime="2020-04-13T22:44:09.000Z">2020-04-14</time></div>
+                    <a href="/blog/2020/04/14/JavaScript深入理解之继承/" class="title has-link-black-ter is-size-6 has-text-weight-normal">JavaScript深入理解之继承</a>
+                    <p class="is-size-7 is-uppercase">
+                        <a class="has-link-grey -link" href="/blog/categories/javascript/">javascript</a>
+                    </p>
+                </div>
+            </div>
+        </article>
+        
+        <article class="media">
+            
+            <a href="/blog/2020/03/31/JavaScript深入理解之对象创建/" class="media-left">
+                <p class="image is-64x64">
+                    <img class="thumbnail" src="/blog/images/thumbnail.svg" alt="JavaScript深入理解之对象创建">
+                </p>
+            </a>
+            
+            <div class="media-content">
+                <div class="content">
+                    <div><time class="has-text-grey is-size-7 is-uppercase" datetime="2020-03-30T22:35:58.000Z">2020-03-31</time></div>
+                    <a href="/blog/2020/03/31/JavaScript深入理解之对象创建/" class="title has-link-black-ter is-size-6 has-text-weight-normal">JavaScript深入理解之对象创建</a>
+                    <p class="is-size-7 is-uppercase">
+                        <a class="has-link-grey -link" href="/blog/categories/javascript/">javascript</a>
+                    </p>
+                </div>
+            </div>
+        </article>
         
         <article class="media">
             
@@ -423,44 +598,6 @@
                 <div class="content">
                     <div><time class="has-text-grey is-size-7 is-uppercase" datetime="2020-03-25T12:45:18.000Z">2020-03-25</time></div>
                     <a href="/blog/2020/03/25/剑指offer-javascript版-旋转数组的最小数字/" class="title has-link-black-ter is-size-6 has-text-weight-normal">剑指Offer-Javascript版-旋转数组的最小数字</a>
-                    <p class="is-size-7 is-uppercase">
-                        <a class="has-link-grey -link" href="/blog/categories/算法/">算法</a>
-                    </p>
-                </div>
-            </div>
-        </article>
-        
-        <article class="media">
-            
-            <a href="/blog/2020/03/24/前端面试-手写代码秘籍/" class="media-left">
-                <p class="image is-64x64">
-                    <img class="thumbnail" src="https://images.pexels.com/photos/3635300/pexels-photo-3635300.jpeg?auto=compress&amp;cs=tinysrgb&amp;dpr=1&amp;w=500" alt="Js各种源码实现">
-                </p>
-            </a>
-            
-            <div class="media-content">
-                <div class="content">
-                    <div><time class="has-text-grey is-size-7 is-uppercase" datetime="2020-03-23T22:12:09.000Z">2020-03-24</time></div>
-                    <a href="/blog/2020/03/24/前端面试-手写代码秘籍/" class="title has-link-black-ter is-size-6 has-text-weight-normal">Js各种源码实现</a>
-                    <p class="is-size-7 is-uppercase">
-                        <a class="has-link-grey -link" href="/blog/categories/javascript/">javascript</a>
-                    </p>
-                </div>
-            </div>
-        </article>
-        
-        <article class="media">
-            
-            <a href="/blog/2020/03/22/剑指offer-javascript版-斐波那契数列/" class="media-left">
-                <p class="image is-64x64">
-                    <img class="thumbnail" src="https://images.pexels.com/photos/1154619/pexels-photo-1154619.jpeg?auto=compress&amp;cs=tinysrgb&amp;dpr=1&amp;w=500" alt="剑指Offer-Javascript版-斐波那契数列">
-                </p>
-            </a>
-            
-            <div class="media-content">
-                <div class="content">
-                    <div><time class="has-text-grey is-size-7 is-uppercase" datetime="2020-03-22T08:45:12.000Z">2020-03-22</time></div>
-                    <a href="/blog/2020/03/22/剑指offer-javascript版-斐波那契数列/" class="title has-link-black-ter is-size-6 has-text-weight-normal">剑指Offer-Javascript版-斐波那契数列</a>
                     <p class="is-size-7 is-uppercase">
                         <a class="has-link-grey -link" href="/blog/categories/算法/">算法</a>
                     </p>
@@ -532,7 +669,7 @@
                 <span class="level-item">javascript</span>
             </span>
             <span class="level-end">
-                <span class="level-item tag">2</span>
+                <span class="level-item tag">4</span>
             </span>
         </a></li><li>
         <a class="level is-marginless" href="/blog/categories/算法/">
@@ -557,12 +694,23 @@
         <ul class="menu-list">
         
         <li>
+            <a class="level is-marginless" href="/blog/archives/2020/04/">
+                <span class="level-start">
+                    <span class="level-item">四月 2020</span>
+                </span>
+                <span class="level-end">
+                    <span class="level-item tag">1</span>
+                </span>
+            </a>
+        </li>
+        
+        <li>
             <a class="level is-marginless" href="/blog/archives/2020/03/">
                 <span class="level-start">
                     <span class="level-item">三月 2020</span>
                 </span>
                 <span class="level-end">
-                    <span class="level-item tag">15</span>
+                    <span class="level-item tag">16</span>
                 </span>
             </a>
         </li>
@@ -590,7 +738,7 @@
                 <div class="control">
                     <a class="tags has-addons" href="/blog/tags/javascript/">
                         <span class="tag">javascript</span>
-                        <span class="tag is-grey">2</span>
+                        <span class="tag is-grey">4</span>
                     </a>
                 </div>
                 
@@ -759,7 +907,7 @@
                 <span class="level-item">javascript</span>
             </span>
             <span class="level-end">
-                <span class="level-item tag">2</span>
+                <span class="level-item tag">4</span>
             </span>
         </a></li><li>
         <a class="level is-marginless" href="/blog/categories/算法/">
@@ -784,12 +932,23 @@
         <ul class="menu-list">
         
         <li>
+            <a class="level is-marginless" href="/blog/archives/2020/04/">
+                <span class="level-start">
+                    <span class="level-item">四月 2020</span>
+                </span>
+                <span class="level-end">
+                    <span class="level-item tag">1</span>
+                </span>
+            </a>
+        </li>
+        
+        <li>
             <a class="level is-marginless" href="/blog/archives/2020/03/">
                 <span class="level-start">
                     <span class="level-item">三月 2020</span>
                 </span>
                 <span class="level-end">
-                    <span class="level-item tag">15</span>
+                    <span class="level-item tag">16</span>
                 </span>
             </a>
         </li>
@@ -817,7 +976,7 @@
                 <div class="control">
                     <a class="tags has-addons" href="/blog/tags/javascript/">
                         <span class="tag">javascript</span>
-                        <span class="tag is-grey">2</span>
+                        <span class="tag is-grey">4</span>
                     </a>
                 </div>
                 

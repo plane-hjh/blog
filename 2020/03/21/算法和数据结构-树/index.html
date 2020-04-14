@@ -8,18 +8,23 @@
 
 <meta name="viewport" content="width=device-width, initial-scale=1, maximum-scale=1" />
 
-<title>标签: 递归 - plane&#39;s blog</title>
+<title>算法和数据结构-树 - plane&#39;s blog</title>
 
 
-    <meta property="og:type" content="website">
-<meta property="og:title" content="plane&#39;s blog">
-<meta property="og:url" content="http://yoursite.com/blog/tags/递归/index.html">
+    <meta name="description" content="想普及一下树的知识，个人认为树是算法必须要牢牢掌握的一部分。 一般树的逻辑可以说是灰常滴简单了：">
+<meta name="keywords" content="二叉树,树">
+<meta property="og:type" content="article">
+<meta property="og:title" content="算法和数据结构-树">
+<meta property="og:url" content="http://yoursite.com/blog/2020/03/21/算法和数据结构-树/index.html">
 <meta property="og:site_name" content="plane&#39;s blog">
+<meta property="og:description" content="想普及一下树的知识，个人认为树是算法必须要牢牢掌握的一部分。 一般树的逻辑可以说是灰常滴简单了：">
 <meta property="og:locale" content="zh-CN">
-<meta property="og:image" content="http://yoursite.com/blog/images/og_image.png">
+<meta property="og:image" content="https://images.pexels.com/photos/3908080/pexels-photo-3908080.jpeg?auto=compress&cs=tinysrgb&dpr=1&w=500">
+<meta property="og:updated_time" content="2020-03-30T22:39:03.767Z">
 <meta name="twitter:card" content="summary">
-<meta name="twitter:title" content="plane&#39;s blog">
-<meta name="twitter:image" content="http://yoursite.com/blog/images/og_image.png">
+<meta name="twitter:title" content="算法和数据结构-树">
+<meta name="twitter:description" content="想普及一下树的知识，个人认为树是算法必须要牢牢掌握的一部分。 一般树的逻辑可以说是灰常滴简单了：">
+<meta name="twitter:image" content="https://images.pexels.com/photos/3908080/pexels-photo-3908080.jpeg?auto=compress&cs=tinysrgb&dpr=1&w=500">
 
 
 
@@ -94,7 +99,7 @@
         <div class="navbar-brand is-flex-center">
             <a class="navbar-item navbar-logo" href="/blog/">
             
-                <img src="/blog/images/logo.svg" alt="plane&#39;s blog" height="28">
+                <img src="/blog/images/logo.svg" alt="算法和数据结构-树" height="28">
             
             </a>
         </div>
@@ -140,31 +145,20 @@
     <section class="section">
         <div class="container">
             <div class="columns">
-                <div class="column is-8-tablet is-8-desktop is-6-widescreen has-order-2 column-main"><div class="card">
-    <div class="card-content">
-        <nav class="breadcrumb" aria-label="breadcrumbs">
-        <ul>
-            <li><a href="/blog/tags">标签</a></li>
-            <li class="is-active"><a href="#" aria-current="page">递归</a></li>
-        </ul>
-        </nav>
-    </div>
-</div>
-
-    
+                <div class="column is-8-tablet is-8-desktop is-6-widescreen has-order-2 column-main">
 <div class="card articleHover">
     
     <div class="card-image">
-        <a href="/blog/2020/03/22/剑指offer-javascript版-斐波那契数列/" class="image is-7by1">
-            <img class="thumbnail" src="https://images.pexels.com/photos/1154619/pexels-photo-1154619.jpeg?auto=compress&amp;cs=tinysrgb&amp;dpr=1&amp;w=500" alt="剑指Offer-Javascript版-斐波那契数列">
-        </a>
+        <span  class="image is-7by1">
+            <img class="thumbnail" src="https://images.pexels.com/photos/3908080/pexels-photo-3908080.jpeg?auto=compress&amp;cs=tinysrgb&amp;dpr=1&amp;w=500" alt="算法和数据结构-树">
+        </span>
     </div>
     
     <div class="card-content article ">
         
         <div class="level article-meta is-size-7 is-uppercase is-mobile is-overflow-x-auto">
             <div class="level-left">
-                <time class="level-item has-text-grey" datetime="2020-03-22T08:45:12.000Z">2020-03-22</time>
+                <time class="level-item has-text-grey" datetime="2020-03-21T09:08:04.000Z">2020-03-21</time>
                 
                 <div class="level-item">
                 <a class="has-link-grey -link" href="/blog/categories/算法/">算法</a>
@@ -174,40 +168,129 @@
                 <span class="level-item has-text-grey">
                     
                     
-                    4 分钟 读完 (大约 545 个字)
+                    10 分钟 读完 (大约 1502 个字)
                 </span>
                 
+                
+                <span class="level-item has-text-grey" id="busuanzi_container_page_pv">
+                    <i class="far fa-eye"></i>
+                    <span id="busuanzi_value_page_pv">0</span>次访问
+                </span>
                 
             </div>
         </div>
         
         <h1 class="title is-size-3 is-size-4-mobile has-text-weight-normal">
             
-                <a class="has-link-black-ter" href="/blog/2020/03/22/剑指offer-javascript版-斐波那契数列/">剑指Offer-Javascript版-斐波那契数列</a>
+                算法和数据结构-树
             
         </h1>
         <div class="content">
-            <p><strong>题目描述</strong>：写一个函数，输入n，求斐波那契数列的第n项。斐波那契数列的定义如下：</p>
+            <p>想普及一下树的知识，个人认为树是算法必须要牢牢掌握的一部分。</p>
+<p>一般树的逻辑可以说是灰常滴简单了：</p>
+<a id="more"></a>
+<ul>
+<li><p>除根节点之外的每个节点只有一个父节点，根节点没有父节点。</p>
+</li>
+<li><p>除叶节点之外所有节点都有一个或多个子节点，叶节点没有子节点。</p>
+</li>
+</ul>
+<p>父节点和子节点之间是用指针连接，所以树会涉及到大量的指针，因此与树有关的面试题都不太容易，但是越不容易的知识点，我们就越要攻克。</p>
+<h2 id="树的遍历"><a href="#树的遍历" class="headerlink" title="树的遍历"></a>树的遍历</h2><p>但是面试时候提到的树，大部分都是二叉树。二叉树是树的一种特殊结构，在二叉树中每个节点最多只能有两个子节点。在二叉树中最重要的考点莫过于树的遍历，即按照某一个顺序遍历访问树中的所有节点。</p>
+<p>二叉树的遍历可以有以下几种：</p>
+<ul>
+<li><p>前序遍历</p>
+</li>
+<li><p>中序遍历</p>
+</li>
+<li><p>后序遍历</p>
+</li>
+<li><p>层序遍历</p>
+</li>
+</ul>
+<p>但是从更宏观的角度来说，也可以归结为两大类</p>
+<ul>
+<li><p>深度优先遍历（前序遍历，中序遍历，后序遍历）</p>
+</li>
+<li><p>广度优先遍历（层序遍历）</p>
+</li>
+</ul>
+<p>深度优先遍历和层次优先遍历这两个概念可不局限于二叉树，更是一种抽象的算法思想，决定了访问某些复杂数据结构的顺序。在访问树，图，或其他一些复杂数据结构时，这两个概念常常被使用到。</p>
+<h3 id="深度优先遍历"><a href="#深度优先遍历" class="headerlink" title="深度优先遍历"></a>深度优先遍历</h3><p>所谓深度优先，顾名思义，就是偏向于纵深，“一头扎到底”的访问方 式。即先访问树的根节点，再访问根节点的子节点，先往深层访问，深层访问节点结束了，再返回访问同层节点，之后再继续往深层访问节点…可能这种说法有些抽象，下面就通过二叉树的前序遍历、中序遍 历、后序遍历 ，来看一看深度优先是怎么回事吧。</p>
+<h4 id="前序遍历"><a href="#前序遍历" class="headerlink" title="前序遍历"></a>前序遍历</h4><ul>
+<li><code>前序遍历</code>：先访问根节点，再访问左节点，最后访问右节点</li>
+</ul>
+<figure class="highlight js"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br><span class="line">12</span><br><span class="line">13</span><br><span class="line">14</span><br><span class="line">15</span><br><span class="line">16</span><br><span class="line">17</span><br><span class="line">18</span><br><span class="line">19</span><br><span class="line">20</span><br><span class="line">21</span><br><span class="line">22</span><br><span class="line">23</span><br><span class="line">24</span><br><span class="line">25</span><br><span class="line">26</span><br><span class="line">27</span><br><span class="line">28</span><br><span class="line">29</span><br><span class="line">30</span><br><span class="line">31</span><br><span class="line">32</span><br><span class="line">33</span><br><span class="line">34</span><br><span class="line">35</span><br><span class="line">36</span><br><span class="line">37</span><br><span class="line">38</span><br><span class="line">39</span><br><span class="line">40</span><br><span class="line">41</span><br><span class="line">42</span><br><span class="line">43</span><br></pre></td><td class="code"><pre><span class="line"><span class="comment">// 递归版本</span></span><br><span class="line"><span class="keyword">const</span> preOrderTraverse = <span class="function">(<span class="params">root</span>) =&gt;</span> &#123;</span><br><span class="line">    <span class="keyword">let</span> list = []</span><br><span class="line"></span><br><span class="line">    <span class="keyword">const</span> preOrder = <span class="function">(<span class="params">node</span>) =&gt;</span> &#123;</span><br><span class="line">        <span class="keyword">if</span>(node !== <span class="literal">null</span>) &#123;</span><br><span class="line">            <span class="comment">// 先访问根节点</span></span><br><span class="line">            list.push(node.val)</span><br><span class="line">            <span class="comment">// 再访问左节点</span></span><br><span class="line">            preOrder(node.left)</span><br><span class="line">            <span class="comment">// 最后访问右节点</span></span><br><span class="line">            preOrder(node.right)</span><br><span class="line">        &#125;</span><br><span class="line">    &#125;</span><br><span class="line">    inOrder(root)</span><br><span class="line"></span><br><span class="line">    <span class="keyword">return</span> list</span><br><span class="line">&#125;</span><br><span class="line"></span><br><span class="line"><span class="comment">// 非递归版本</span></span><br><span class="line"><span class="keyword">const</span> preOrderTraverseUnRecur = <span class="function">(<span class="params">root</span>) =&gt;</span> &#123;</span><br><span class="line">    <span class="keyword">let</span> list = [];</span><br><span class="line">    <span class="keyword">let</span> stack = [root];</span><br><span class="line"></span><br><span class="line">    <span class="keyword">while</span>(stack.length !== <span class="number">0</span>) &#123;</span><br><span class="line">        <span class="keyword">const</span> curNode = stack.pop()</span><br><span class="line"></span><br><span class="line">        <span class="keyword">const</span> left = curNode.left</span><br><span class="line">        <span class="keyword">const</span> right = curNode.right</span><br><span class="line"></span><br><span class="line">        <span class="comment">// 第一步的时候，先访问的是根节点</span></span><br><span class="line">        list.push(curNode.val)</span><br><span class="line"></span><br><span class="line">        <span class="keyword">if</span>(right) &#123;</span><br><span class="line">            stack.push(right)</span><br><span class="line">        &#125;</span><br><span class="line"></span><br><span class="line">        <span class="comment">// 因为pop是取出最后一个元素，所以我们要确保首先拿到的是左节点</span></span><br><span class="line">        <span class="keyword">if</span>(left) &#123;</span><br><span class="line">            stack.push(left)</span><br><span class="line">        &#125;</span><br><span class="line">    &#125;</span><br><span class="line">&#125;</span><br></pre></td></tr></table></figure>
+<h4 id="中序遍历"><a href="#中序遍历" class="headerlink" title="中序遍历"></a>中序遍历</h4><ul>
+<li><code>中序遍历</code>：先访问左节点，再访问中节点，最后访问右节点</li>
+</ul>
+<figure class="highlight js"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br><span class="line">12</span><br><span class="line">13</span><br><span class="line">14</span><br><span class="line">15</span><br><span class="line">16</span><br><span class="line">17</span><br><span class="line">18</span><br><span class="line">19</span><br><span class="line">20</span><br><span class="line">21</span><br><span class="line">22</span><br><span class="line">23</span><br><span class="line">24</span><br><span class="line">25</span><br><span class="line">26</span><br><span class="line">27</span><br><span class="line">28</span><br><span class="line">29</span><br><span class="line">30</span><br><span class="line">31</span><br><span class="line">32</span><br><span class="line">33</span><br><span class="line">34</span><br><span class="line">35</span><br><span class="line">36</span><br><span class="line">37</span><br><span class="line">38</span><br><span class="line">39</span><br></pre></td><td class="code"><pre><span class="line"><span class="comment">// 递归版本</span></span><br><span class="line"><span class="keyword">const</span> inOrderTraverse = <span class="function">(<span class="params">root</span>) =&gt;</span> &#123;</span><br><span class="line">    <span class="keyword">let</span> list = []</span><br><span class="line"></span><br><span class="line">    <span class="keyword">const</span> inOrder = <span class="function">(<span class="params">node</span>) =&gt;</span> &#123;</span><br><span class="line">        <span class="keyword">if</span>(node !== <span class="literal">null</span>) &#123;</span><br><span class="line">            inOrder(node.left)</span><br><span class="line">            list.push(node.val)</span><br><span class="line">            inOrder(node.right)</span><br><span class="line">        &#125;</span><br><span class="line">    &#125;</span><br><span class="line"></span><br><span class="line">    inOrder(root)</span><br><span class="line"></span><br><span class="line">    <span class="keyword">return</span> list</span><br><span class="line">&#125;</span><br><span class="line"></span><br><span class="line"><span class="comment">// 非递归版本</span></span><br><span class="line"><span class="keyword">const</span> inOrderTraverseUnRecur = <span class="function">(<span class="params">root</span>) =&gt;</span> &#123;</span><br><span class="line">    <span class="keyword">let</span> list = []</span><br><span class="line">    <span class="comment">// 借助了栈，先进后出的概念</span></span><br><span class="line">    <span class="keyword">let</span> stack = []</span><br><span class="line">    <span class="keyword">let</span> head = root</span><br><span class="line"></span><br><span class="line">    <span class="keyword">while</span>(stack.length !== <span class="number">0</span> || head !== <span class="literal">undefined</span>) &#123;</span><br><span class="line">        <span class="keyword">while</span>(head !== <span class="literal">undefined</span>) &#123;</span><br><span class="line">            stack.push(head)</span><br><span class="line">            head = head.left</span><br><span class="line">        &#125;</span><br><span class="line"></span><br><span class="line">        <span class="keyword">if</span>(stack.length !== <span class="number">0</span>) &#123;</span><br><span class="line">            head = stack.pop()</span><br><span class="line">            list.push(head.val)</span><br><span class="line">            head = head.right</span><br><span class="line">        &#125;</span><br><span class="line">    &#125;</span><br><span class="line"></span><br><span class="line">    <span class="keyword">return</span> list</span><br><span class="line">&#125;</span><br></pre></td></tr></table></figure>
+<h4 id="后序遍历"><a href="#后序遍历" class="headerlink" title="后序遍历"></a>后序遍历</h4><ul>
+<li><code>后序遍历</code>：先访问左节点，再访问右节点，最后访问根节点</li>
+</ul>
+<figure class="highlight js"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br><span class="line">12</span><br><span class="line">13</span><br><span class="line">14</span><br><span class="line">15</span><br><span class="line">16</span><br><span class="line">17</span><br><span class="line">18</span><br><span class="line">19</span><br><span class="line">20</span><br><span class="line">21</span><br><span class="line">22</span><br><span class="line">23</span><br><span class="line">24</span><br><span class="line">25</span><br><span class="line">26</span><br><span class="line">27</span><br><span class="line">28</span><br><span class="line">29</span><br><span class="line">30</span><br><span class="line">31</span><br><span class="line">32</span><br><span class="line">33</span><br><span class="line">34</span><br><span class="line">35</span><br><span class="line">36</span><br><span class="line">37</span><br><span class="line">38</span><br><span class="line">39</span><br><span class="line">40</span><br><span class="line">41</span><br><span class="line">42</span><br><span class="line">43</span><br><span class="line">44</span><br><span class="line">45</span><br><span class="line">46</span><br><span class="line">47</span><br></pre></td><td class="code"><pre><span class="line"><span class="comment">// 递归</span></span><br><span class="line"><span class="keyword">const</span> postOrderTraverse = <span class="function">(<span class="params">root</span>) =&gt;</span> &#123;</span><br><span class="line">    <span class="keyword">let</span> list = []</span><br><span class="line"></span><br><span class="line">    <span class="keyword">const</span> postOrder = <span class="function">(<span class="params">node</span>) =&gt;</span> &#123;</span><br><span class="line">        <span class="keyword">if</span>(!node) &#123;</span><br><span class="line">            postOrder(node.left)</span><br><span class="line">            postOrder(node.right)</span><br><span class="line">            list.push(node.val)</span><br><span class="line">        &#125;</span><br><span class="line">    &#125;</span><br><span class="line"></span><br><span class="line">    postOrder(root)</span><br><span class="line"></span><br><span class="line">    <span class="keyword">return</span> list</span><br><span class="line">&#125;</span><br><span class="line"></span><br><span class="line"><span class="comment">// 非递归</span></span><br><span class="line"><span class="keyword">const</span> postOrderTraverseUnRecur = <span class="function">(<span class="params">root</span>) =&gt;</span> &#123;</span><br><span class="line">    <span class="keyword">let</span> list = []</span><br><span class="line">    <span class="keyword">if</span>(root !== <span class="literal">undefined</span>) &#123;</span><br><span class="line">        <span class="keyword">let</span> s1 = []</span><br><span class="line">        <span class="keyword">let</span> s2 = []</span><br><span class="line"></span><br><span class="line">        s1.push(root)</span><br><span class="line"></span><br><span class="line">        <span class="keyword">while</span>(s1.length !== <span class="number">0</span>) &#123;</span><br><span class="line">            head = s1.pop()</span><br><span class="line">            s2.push(head)</span><br><span class="line"></span><br><span class="line">            <span class="keyword">if</span>(head.left !== <span class="literal">undefined</span>) &#123;</span><br><span class="line">                s1.push(head.left)</span><br><span class="line">            &#125;</span><br><span class="line"></span><br><span class="line">            <span class="keyword">if</span>(head.right !== <span class="literal">undefined</span>) &#123;</span><br><span class="line">                s1.push(head.right)</span><br><span class="line">            &#125;</span><br><span class="line">        &#125;</span><br><span class="line"></span><br><span class="line">        <span class="keyword">while</span>(s2.length !== <span class="number">0</span>) &#123;</span><br><span class="line">            <span class="keyword">var</span> item = s2.pop()</span><br><span class="line">            list.push(item.val)</span><br><span class="line">        &#125;</span><br><span class="line">    &#125;</span><br><span class="line"></span><br><span class="line">    <span class="keyword">return</span> list</span><br><span class="line">&#125;</span><br></pre></td></tr></table></figure>
+<p>为了方便记忆，可以这样记：<strong>前序遍历对应的前是根节点最先访问。中序遍历对应的前是根节点放在中间访问。后序遍历对应的前是根节点最后才访问。</strong></p>
+<p>这三种遍历方式都有 <code>递归</code> 和 <code>循环</code> 两种不同的实现方式，但是面试官更喜欢考我们的是循环实现方式，所以我们应该要掌握这三种遍历的六种遍历方式!</p>
+<h3 id="广度优先遍历"><a href="#广度优先遍历" class="headerlink" title="广度优先遍历"></a>广度优先遍历</h3><p>如果说深度优先遍历是在一个方向上“一头扎到底”，那么广度优先遍历 则恰恰相反: 先在各个方向上各走出1步，再在各个方向上走出第2步、 第3步……一直到各个方向全部走完。听起来有些抽象，下面让我们通 过二叉树的层序遍历 ，来看一看广度优先是怎么回事。</p>
+<h4 id="层序遍历"><a href="#层序遍历" class="headerlink" title="层序遍历"></a>层序遍历</h4><p>层序遍历，顾名思义，就是二叉树按照从根节点到叶子节点的层次关 系，一层一层横向遍历各个节点。</p>
+<figure class="highlight js"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br><span class="line">12</span><br><span class="line">13</span><br><span class="line">14</span><br><span class="line">15</span><br><span class="line">16</span><br><span class="line">17</span><br><span class="line">18</span><br></pre></td><td class="code"><pre><span class="line"><span class="comment">// 层序遍历</span></span><br><span class="line"><span class="keyword">const</span> levelOrderTraverse = <span class="function">(<span class="params">root</span>) =&gt;</span> &#123;</span><br><span class="line">    <span class="keyword">let</span> queue = [root]</span><br><span class="line">    <span class="keyword">let</span> list = []</span><br><span class="line"></span><br><span class="line">    <span class="keyword">while</span>(queue.length !== <span class="number">0</span>) &#123;</span><br><span class="line">        <span class="keyword">let</span> node = queue.shift()</span><br><span class="line">        list.push(node.val)</span><br><span class="line"></span><br><span class="line">        <span class="keyword">if</span>(node.left !== <span class="literal">null</span>) &#123;</span><br><span class="line">            queue.push(node.left)</span><br><span class="line">        &#125;</span><br><span class="line"></span><br><span class="line">        <span class="keyword">if</span>(node.right !== <span class="literal">null</span>) &#123;</span><br><span class="line">            queue.push(node.right)</span><br><span class="line">        &#125;</span><br><span class="line">    &#125;</span><br><span class="line">&#125;</span><br></pre></td></tr></table></figure>
+<h2 id="二叉搜索树"><a href="#二叉搜索树" class="headerlink" title="二叉搜索树"></a>二叉搜索树</h2><p><code>二叉搜索树</code>：左子节点总是小于或等于根节点，而右节点总是大于或等于根节点。可以在 <code>O(logn)</code> 内根据数值在二叉搜索树中找到一个节点</p>
+<h2 id="堆"><a href="#堆" class="headerlink" title="堆"></a>堆</h2><p><code>堆</code>：分为最大堆和最小堆。最大堆中根节点的值最大，在最小堆中根节点的值最小。需要快速找到最大值或最小值都可以用堆来解决</p>
+<h2 id="红黑树"><a href="#红黑树" class="headerlink" title="红黑树"></a>红黑树</h2><p><code>红黑树</code>：把树中的节点定义为红，黑两种颜色，并通过规则确保从根节点到叶节点的最长路径的长度不超过最短路径的两倍</p>
+
         </div>
         
-        
-        <div class="level is-mobile">
+        <div class="level is-size-7 is-uppercase">
             <div class="level-start">
                 <div class="level-item">
-                <a class="button is-size-7 is-light" href="/blog/2020/03/22/剑指offer-javascript版-斐波那契数列/#more">阅读更多</a>
+                    <span class="is-size-6 has-text-grey has-mr-7">#</span>
+                    <a class="has-link-grey -link" href="/blog/tags/二叉树/">二叉树</a>, <a class="has-link-grey -link" href="/blog/tags/树/">树</a>
                 </div>
             </div>
         </div>
         
         
+        
+        <div class="social-share"></div>
+<link rel="stylesheet" href="https://cdn.jsdelivr.net/npm/social-share.js@1.0.16/dist/css/share.min.css">
+<script src="https://cdn.jsdelivr.net/npm/social-share.js@1.0.16/dist/js/social-share.min.js"></script>
+        
     </div>
 </div>
 
 <!-- 
+
+<div class="card">
+    <div class="card-content">
+        <h3 class="menu-label has-text-centered">喜欢这篇文章？打赏一下作者吧</h3>
+        <div class="buttons is-centered">
+            
+        </div>
+    </div>
+</div>
  -->
 
 
-
+<div class="card card-transparent">
+    <div class="level post-navigation is-flex-wrap is-mobile">
+        
+        <div class="level-start">
+            <a class="level level-item has-link-grey  article-nav-prev" href="/blog/2020/03/22/剑指offer-javascript版-二叉树的下一个节点/">
+                <i class="level-item fas fa-chevron-left"></i>
+                <span class="level-item">剑指Offer-Javascript版-二叉树的下一个节点</span>
+            </a>
+        </div>
+        
+        
+        <div class="level-end">
+            <a class="level level-item has-link-grey  article-nav-next" href="/blog/2020/03/19/剑指offer-javascript版-重建二叉树/">
+                <span class="level-item">剑指Offer-Javascript版-重建二叉树</span>
+                <i class="level-item fas fa-chevron-right"></i>
+            </a>
+        </div>
+        
+    </div>
+</div>
 
 
 </div>
@@ -892,7 +975,7 @@
             <div class="level-start has-text-centered-mobile">
                 <a class="footer-logo is-block has-mb-6" href="/blog/">
                 
-                    <img src="/blog/images/logo.svg" alt="plane&#39;s blog" height="28">
+                    <img src="/blog/images/logo.svg" alt="算法和数据结构-树" height="28">
                 
                 </a>
                 <p class="is-size-7">
