@@ -11,19 +11,19 @@
 <title>JavaScript深入理解之继承 - plane&#39;s blog</title>
 
 
-    <meta name="description" content="本文更像是Javascript的笔记汇总 对于使用过基于类的语言(如java或C++) 的开发人员来说，javascript有点迷，因为它的动态的，并且本身不提供一个class实现。虽然ES6中引入了 class 关键字，但是这只是语法糖，javascript仍然是基于原型实现的。 1.基于原型链的继承每个实例对象（Object）都有一个私有属性（称之为proto）指向它的构造函数的原型对象（pr">
+    <meta name="description" content="本文更像是Javascript的笔记汇总 对于使用过基于类的语言(如java或C++) 的开发人员来说，javascript有点迷，因为它的动态的，并且本身不提供一个class实现。虽然ES6中引入了 class 关键字，但是这只是语法糖，javascript仍然是基于原型实现的。">
 <meta name="keywords" content="javascript">
 <meta property="og:type" content="article">
 <meta property="og:title" content="JavaScript深入理解之继承">
 <meta property="og:url" content="http://yoursite.com/blog/2020/04/14/JavaScript深入理解之继承/index.html">
 <meta property="og:site_name" content="plane&#39;s blog">
-<meta property="og:description" content="本文更像是Javascript的笔记汇总 对于使用过基于类的语言(如java或C++) 的开发人员来说，javascript有点迷，因为它的动态的，并且本身不提供一个class实现。虽然ES6中引入了 class 关键字，但是这只是语法糖，javascript仍然是基于原型实现的。 1.基于原型链的继承每个实例对象（Object）都有一个私有属性（称之为proto）指向它的构造函数的原型对象（pr">
+<meta property="og:description" content="本文更像是Javascript的笔记汇总 对于使用过基于类的语言(如java或C++) 的开发人员来说，javascript有点迷，因为它的动态的，并且本身不提供一个class实现。虽然ES6中引入了 class 关键字，但是这只是语法糖，javascript仍然是基于原型实现的。">
 <meta property="og:locale" content="zh-CN">
 <meta property="og:image" content="http://yoursite.com/blog/images/og_image.png">
-<meta property="og:updated_time" content="2020-04-14T13:20:13.234Z">
+<meta property="og:updated_time" content="2020-04-14T13:24:17.721Z">
 <meta name="twitter:card" content="summary">
 <meta name="twitter:title" content="JavaScript深入理解之继承">
-<meta name="twitter:description" content="本文更像是Javascript的笔记汇总 对于使用过基于类的语言(如java或C++) 的开发人员来说，javascript有点迷，因为它的动态的，并且本身不提供一个class实现。虽然ES6中引入了 class 关键字，但是这只是语法糖，javascript仍然是基于原型实现的。 1.基于原型链的继承每个实例对象（Object）都有一个私有属性（称之为proto）指向它的构造函数的原型对象（pr">
+<meta name="twitter:description" content="本文更像是Javascript的笔记汇总 对于使用过基于类的语言(如java或C++) 的开发人员来说，javascript有点迷，因为它的动态的，并且本身不提供一个class实现。虽然ES6中引入了 class 关键字，但是这只是语法糖，javascript仍然是基于原型实现的。">
 <meta name="twitter:image" content="http://yoursite.com/blog/images/og_image.png">
 
 
@@ -162,7 +162,7 @@
                 <span class="level-item has-text-grey">
                     
                     
-                    8 分钟 读完 (大约 1153 个字)
+                    8 分钟 读完 (大约 1154 个字)
                 </span>
                 
                 
@@ -182,6 +182,7 @@
         <div class="content">
             <p>本文更像是Javascript的笔记汇总</p>
 <p>对于使用过基于类的语言(如java或C++) 的开发人员来说，javascript有点迷，因为它的动态的，并且本身不提供一个class实现。虽然ES6中引入了 <code>class</code> 关键字，但是这只是语法糖，javascript仍然是基于原型实现的。</p>
+<a id="more"></a>
 <h2 id="1-基于原型链的继承"><a href="#1-基于原型链的继承" class="headerlink" title="1.基于原型链的继承"></a>1.基于原型链的继承</h2><p>每个实例对象（Object）都有一个私有属性（称之为<strong>proto</strong>）指向它的构造函数的原型对象（prototype）。该原型对象也有一个自己的原型对象（<strong>proto</strong>）,层层向上直到一个对象的原型对象为 <code>null</code>，根据定义，<code>null</code> 没有原型，并作为这个原型链中的最后一个环节</p>
 <figure class="highlight js"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br><span class="line">12</span><br><span class="line">13</span><br><span class="line">14</span><br><span class="line">15</span><br><span class="line">16</span><br><span class="line">17</span><br><span class="line">18</span><br><span class="line">19</span><br><span class="line">20</span><br><span class="line">21</span><br><span class="line">22</span><br><span class="line">23</span><br><span class="line">24</span><br><span class="line">25</span><br><span class="line">26</span><br></pre></td><td class="code"><pre><span class="line"><span class="function"><span class="keyword">function</span> <span class="title">Parent</span>(<span class="params"></span>) </span>&#123;</span><br><span class="line">    <span class="keyword">this</span>.name = <span class="string">'jane'</span></span><br><span class="line">    <span class="keyword">this</span>.list = [<span class="number">1</span>,<span class="number">2</span>]</span><br><span class="line">&#125;</span><br><span class="line"></span><br><span class="line">Parent.prototype.getName = <span class="function"><span class="keyword">function</span>(<span class="params"></span>) </span>&#123;</span><br><span class="line">    <span class="built_in">console</span>.log(<span class="keyword">this</span>.name)</span><br><span class="line">&#125;</span><br><span class="line"></span><br><span class="line"><span class="function"><span class="keyword">function</span> <span class="title">Child</span>(<span class="params"></span>) </span>&#123;</span><br><span class="line"></span><br><span class="line">&#125;</span><br><span class="line"></span><br><span class="line"><span class="comment">// Child的原型是Parent的实例</span></span><br><span class="line">Child.prototype = <span class="keyword">new</span> Parent()</span><br><span class="line"></span><br><span class="line"><span class="keyword">let</span> child1 = <span class="keyword">new</span> Child()</span><br><span class="line">child1.name = <span class="string">"tony"</span></span><br><span class="line">child1.list.push(<span class="number">3</span>)</span><br><span class="line"><span class="built_in">console</span>.log(child1.name)    <span class="comment">// tony</span></span><br><span class="line"><span class="built_in">console</span>.log(child1.list)    <span class="comment">// [1,2,3]</span></span><br><span class="line"></span><br><span class="line"><span class="keyword">let</span> child2 = <span class="keyword">new</span> Child()</span><br><span class="line"><span class="built_in">console</span>.log(child2.name)    <span class="comment">// jane</span></span><br><span class="line"><span class="comment">// 引用类型的属性被所有实例共享</span></span><br><span class="line"><span class="built_in">console</span>.log(child2.list)    <span class="comment">// [1,2,3]</span></span><br></pre></td></tr></table></figure>
 <p>缺点：</p>
